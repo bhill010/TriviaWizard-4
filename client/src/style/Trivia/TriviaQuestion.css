@@ -1,0 +1,25 @@
+/* QUESTIONN STYLING */
+.question-paragraph {
+  margin-top: 20px;
+  color: white;
+  font-size: 30px;
+}
+
+.question-back-button {
+  align-self: flex-end;
+  margin-top: 20px;
+  font-size: 20px !important;
+  padding: 10px 30px;
+}
+
+.wrong {
+  background-color: red !important;
+  border-color: red !important;
+  color: white !important;
+}
+
+.right {
+  background-color: #59fd30 !important;
+  border-color: #59fd30 !important;
+  color: white !important;
+}

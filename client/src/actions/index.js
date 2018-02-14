@@ -35,7 +35,7 @@ export const login = (username, password, cb) => {
       .post("/api/login", { username, password })
       .then(response => {
         dispatch({ type: LOGIN, payload: response.data });
-        cb("/");
+        cb("/questions");
       })
       .catch(err => {
         dispatch({ type: LOGIN_FAILED, payload: err.response.data });

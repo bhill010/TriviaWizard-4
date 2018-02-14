@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { login, logout, clearAuthErrors } from "../../actions";
 
 import "../../style/App.css";
+import "../../style/Credential/Form.css";
 
 class Login extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class Login extends Component {
   render() {
     return (
       <div className="center_container">
-        <h3>Login Page</h3>
+        <h3 className="index-header">Login Page</h3>
         <div>{this.errorHandler()}</div>
         <form className="form" onSubmit={this.onSubmit}>
           <input

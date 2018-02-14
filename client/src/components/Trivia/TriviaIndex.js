@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import { fetchQuestions, deleteQuestion } from "../../actions";
 import $ from "jquery";
 
+import "../../style/App.css";
+import "../../style/Trivia/TriviaIndex.css";
+import "../../style/index.css";
+
+
 $(document).on("click", "#test", function() {
   $(this)
     .siblings()
@@ -82,7 +87,6 @@ class TriviaIndex extends Component {
   render() {
     return (
       <div className="index">
-        <h2 className="logo pull-xs-left">Trivia Wizard</h2>
         <h3 className="index-header">Question Categories</h3>
         <ul className="list-group index-list">{this.renderQuestions()}</ul>
         <button

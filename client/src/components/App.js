@@ -9,6 +9,7 @@ import Home from "./Home/Home";
 import TriviaIndex from "./Trivia/TriviaIndex";
 import TriviaQuestion from "./Trivia/TriviaQuestion";
 import PrivateRoute from "./Misc/PrivateRoute";
+import SideNav from "./SideNav/SideNav";
 
 import Register from "./Credential/Register";
 import Login from "./Credential/Login";
@@ -22,21 +23,24 @@ class App extends Component {
         <BrowserRouter>
             <div className="route-container">
               <Header />
-              <Switch>
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/" component={Home} />
-                <PrivateRoute
-                  authed={this.props.auth.loggedIn}
-                  path="/questions/:id"
-                  component={TriviaQuestion}
-                />
-                <PrivateRoute
-                  authed={this.props.auth.loggedIn}
-                  path="/questions"
-                  component={TriviaIndex}
-                />
-              </Switch>
+              <div className="route-container__section">
+                <SideNav />
+                <Switch>
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                  <Route exact path="/" component={Home} />
+                  <PrivateRoute
+                    authed={this.props.auth.loggedIn}
+                    path="/questions/:id"
+                    component={TriviaQuestion}
+                  />
+                  <PrivateRoute
+                    authed={this.props.auth.loggedIn}
+                    path="/questions"
+                    component={TriviaIndex}
+                  />
+                </Switch>
+              </div>
             </div>
           </BrowserRouter>
       </div>

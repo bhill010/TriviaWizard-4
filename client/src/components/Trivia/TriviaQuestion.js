@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { fetchQuestion, deleteQuestion } from '../../actions';
 import $ from 'jquery';
 
+import "../../style/App.css";
+import "../../style/Trivia/TriviaQuestion.css";
+import "../../style/index.css";
+
 class TriviaQuestion extends Component {
   constructor(props){
     super(props);

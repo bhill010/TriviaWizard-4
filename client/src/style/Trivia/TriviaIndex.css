@@ -1,0 +1,135 @@
+/* INDEX STYLING */
+.fa-check-square {
+  font-size: 30px !important;
+  /*transition: 0.2s color;*/
+  color: white;
+}
+
+.fa-check-square:hover {
+  color: #49ce49;
+}
+
+.index, .question {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 85%;
+}
+
+.index-header, .index-item, .question-header {
+  text-align: center;
+}
+
+.index-header, .question-header {
+  margin-top: 40px;
+  color: white;
+  font-size: 50px;
+}
+
+.index-subheader {
+  color: white;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.index-list, .question-list {
+  width: 300px;
+}
+
+.index-list {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.index-link {
+  flex-basis: 90%;
+}
+
+.index-item-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 80px;
+}
+
+.index-item, .question-item {
+  margin: 15px;
+  text-decoration: none !important;
+  transition: 0.2s background, 0.2s border-color, 0.2s color;
+}
+
+.index-item:hover, .question-item:hover {
+  background-color: #9fdce3;
+  border-color: #9fdce3;
+  color: white;
+  text-decoration: none !important;
+}
+
+li.index-item {
+  display: flex !important;
+  justify-content: center;
+}
+
+.index-button, .question-button {
+  margin: 30px;
+  font-size: 20px !important;
+  padding: 10px 30px;
+  animation-name: buttonColor;
+  animation-duration: 10s;
+  animation-timing-duration: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes buttonColor {
+  0% {
+    background-color: #4b9bf7;
+    border-color: #4b9bf7;
+  }
+
+  25% {
+    background-color: #0267be;
+    border-color: #0267be;
+  }
+
+  50% {
+    background-color: #4b9bf7;
+    border-color: #4b9bf7;
+  }
+
+  75% {
+    background-color: #0267be;
+    border-color: #0267be;
+  }
+
+  100% {
+    background-color: #4b9bf7;
+    border-color: #4b9bf7;
+  }
+}
+
+.shake {
+  animation: shake 2s linear both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}

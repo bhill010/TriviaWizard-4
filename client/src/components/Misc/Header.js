@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { logout } from "../../actions";
 
 import "../../style/Header.css";
+import "../../style/App.css";
+import "../../style/index.css";
 
 class Header extends Component {
   constructor(props) {
@@ -22,60 +24,77 @@ class Header extends Component {
   render() {
     if (!this.props.auth.loggedIn) {
       return (
-        <nav className="header">
-          <div className="header__first">
-            <span className="">
-              <a
-                className="btn btn-primary header__button"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/bhill010/mernExpressAssociations"
-              >
-                Github
-              </a>
-            </span>
-          </div>
-          <div className="header__second">
-            <Link className="btn btn-info header__button" to="/register">
-              REGISTER
-            </Link>
-            <Link className="btn btn-info header__button" to="/login">
-              LOGIN
-            </Link>
-          </div>
-        </nav>
+        <div className="route-container__header">
+          <nav className="header">
+            <div className="header__first">
+              <Link
+                className="logo pull-xs-left"
+                to={"/"}
+                >
+                Trivia Wizard
+              </Link>
+            </div>
+            <div className="header__second">
+              <Link className="btn btn-info header__button" to="/register">
+                REGISTER
+              </Link>
+              <Link className="btn btn-info header__button" to="/login">
+                LOGIN
+              </Link>
+              <span className="">
+                <a
+                  className="btn btn-primary header__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/bhill010/TriviaWizard-4"
+                >
+                  Github
+                </a>
+              </span>
+            </div>
+          </nav>
+          <h2 className="logo pull-xs-left">Trivia Wizard</h2>
+        </div>
       );
     } else {
       let credentialID = this.props.auth.user._id;
       return (
-        <nav className="header">
-          <div className="header__first">
-            <span className="">
-              <a
-                className="btn btn-primary header__button"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/bhill010/mernExpressAssociations"
+        <div>
+          <nav className="header">
+            <div className="header__first">
+              <Link
+                className="logo pull-xs-left"
+                to={"/"}
+                >
+                Trivia Wizard
+              </Link>
+            </div>
+            <div className="header__second">
+              <Link
+                className="btn btn-info header__button"
+                to={`/credential/${credentialID}`}
               >
-                Github
-              </a>
-            </span>
-          </div>
-          <div className="header__second">
-            <Link
-              className="btn btn-info header__button"
-              to={`/credential/${credentialID}`}
-            >
-              DASHBOARD
-            </Link>
-            <button
-              className="btn btn-warning header__button"
-              onClick={this.logout}
-            >
-              LOGOUT
-            </button>
-          </div>
-        </nav>
+                DASHBOARD
+              </Link>
+              <button
+                className="btn btn-warning header__button"
+                onClick={this.logout}
+              >
+                LOGOUT
+              </button>
+              <span className="">
+                <a
+                  className="btn btn-primary header__button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/bhill010/mernExpressAssociations"
+                >
+                  Github
+                </a>
+              </span>
+            </div>
+          </nav>
+        </div>
       );
     }
   }

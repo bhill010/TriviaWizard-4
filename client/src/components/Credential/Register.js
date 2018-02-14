@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { register, clearLoginErrors, clearAuthErrors } from "../../actions";
 
 import "../../style/App.css";
+import "../../style/Credential/Form.css";
 
 class Register extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Register extends Component {
   render() {
     return (
       <div className="center_container">
-        <h3>Register Page</h3>
+        <h3 className="index-header">Register Page</h3>
         <div>{this.errorHandler()}</div>
         <form className="form" onSubmit={this.onSubmit}>
           <input
