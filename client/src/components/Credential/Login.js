@@ -50,7 +50,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="center_container">
+      <div className="center_container index">
         <h3 className="index-header">Login Page</h3>
         <div>{this.errorHandler()}</div>
         <form className="form" onSubmit={this.onSubmit}>

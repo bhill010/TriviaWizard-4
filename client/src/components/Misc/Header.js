@@ -53,7 +53,6 @@ class Header extends Component {
               </span>
             </div>
           </nav>
-          <h2 className="logo pull-xs-left">Trivia Wizard</h2>
         </div>
       );
     } else {
@@ -70,12 +69,6 @@ class Header extends Component {
               </Link>
             </div>
             <div className="header__second">
-              <Link
-                className="btn btn-info header__button"
-                to={`/credential/${credentialID}`}
-              >
-                DASHBOARD
-              </Link>
               <button
                 className="btn btn-warning header__button"
                 onClick={this.logout}

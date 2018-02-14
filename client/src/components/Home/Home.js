@@ -32,7 +32,7 @@ class Home extends Component {
             your knowledge to the test?
           </h4>
           <div>
-            <Link className="btn btn-primary index-button index-link" to="/questions">
+            <Link className="btn btn-primary index-button index-link" to="/gamemode">
               Questions Page
             </Link>
           </div>

@@ -8,8 +8,11 @@ import Header from "./Misc/Header";
 import Home from "./Home/Home";
 import TriviaIndex from "./Trivia/TriviaIndex";
 import TriviaQuestion from "./Trivia/TriviaQuestion";
+import GameMode from "./Trivia/GameMode";
 import PrivateRoute from "./Misc/PrivateRoute";
 import SideNav from "./SideNav/SideNav";
+import Dashboard from "./SideNav/Dashboard";
+import HighScores from "./SideNav/HighScores";
 
 import Register from "./Credential/Register";
 import Login from "./Credential/Login";
@@ -28,6 +31,9 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
+                  <Route exact path="/dashboard" component={Dashboard} />
+                  <Route exact path="/highscores" component={HighScores} />
+                  <Route exact path="/gamemode" component={GameMode} />
                   <Route exact path="/" component={Home} />
                   <PrivateRoute
                     authed={this.props.auth.loggedIn}
