@@ -7,7 +7,7 @@ const passport = require("passport");
 module.exports = app => {
   app.post("/api/register", function(req, res) {
     User.register(
-      new User({ username: req.body.username, highscore: req.body.highscore }),
+      new User({ username: req.body.username, highscore: 0 }),
       req.body.password,
       function(err, user) {
         if (err) {
@@ -41,4 +41,10 @@ module.exports = app => {
       }
     })(req, res);
   });
+
+  app.get("/api/logout", function(req, res) {
+    req.logout();
+    console.log("Success logout");
+    res.send("Complete");
+  })
 }
