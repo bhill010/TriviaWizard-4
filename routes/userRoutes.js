@@ -6,8 +6,6 @@ const passport = require("passport");
 
 module.exports = app => {
   app.post("/api/register", function(req, res) {
-    console.log("HIIIIII");
-    console.log(req.body.username);
     User.register(
       new User({ username: req.body.username, highscore: req.body.highscore }),
       req.body.password,
@@ -23,5 +21,24 @@ module.exports = app => {
         }
       }
     )
-  })
+  });
+
+  app.post("/api/login", function(req, res, next) {
+    passport.authenticate("local", function(err, user, info) {
+      if (err) {
+        res.status(500).send(err);
+      } else if (!user) {
+        res.status(401).send("Not existing user");
+      } else {
+        req.logIn(user, function(err) {
+          if (err) {
+            res.status(500).send(err);
+          } else {
+            console.log("Success login");
+            res.send(user);
+          }
+        });
+      }
+    })(req, res);
+  });
 }
