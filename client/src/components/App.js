@@ -5,9 +5,10 @@ import { connect } from "react-redux";
 // import logo from './logo.svg';
 
 import Header from "./Misc/Header";
-import PrivateRoute from "./Misc/PrivateRoute";
 import Home from "./Home/Home";
-import SecretHome from "./Home/SecretHome";
+import TriviaIndex from "./Trivia/TriviaIndex";
+import TriviaQuestion from "./Trivia/TriviaQuestion";
+import PrivateRoute from "./Misc/PrivateRoute";
 
 import Register from "./Credential/Register";
 import Login from "./Credential/Login";
@@ -26,10 +27,14 @@ class App extends Component {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/" component={Home} />
                 <PrivateRoute
-                  exact
-                  path="/secret"
                   authed={this.props.auth.loggedIn}
-                  component={SecretHome}
+                  path="/questions/:id"
+                  component={TriviaQuestion}
+                />
+                <PrivateRoute
+                  authed={this.props.auth.loggedIn}
+                  path="/questions"
+                  component={TriviaIndex}
                 />
               </Switch>
             </div>

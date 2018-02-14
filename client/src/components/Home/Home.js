@@ -6,12 +6,11 @@ class Home extends Component {
     return (
       <div>
         Home
-        <Link
-            className="btn btn-success btn-bottom create-button"
-            to={`/secret`}
-          >
-            SECRET
+        <div>
+          <Link className="index-link" to="/questions">
+            Questions Page
           </Link>
+        </div>
       </div>
     )
   }

@@ -5,3 +5,8 @@ export const LOGIN = "login";
 export const LOGIN_FAILED = "login_failed";
 export const LOGOUT = "logout";
 export const CLEAR_AUTH_ERRORS = "clear_auth_errors";
+
+//Question Reducer
+export const FETCH_QUESTIONS = 'fetch_questions';
+export const FETCH_QUESTION = 'fetch_question';
+export const DELETE_QUESTION = 'delete_question';
