@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchQuestion, deleteQuestion } from '../../actions';
+import { fetchQuestion, deleteQuestion, timerStop, timerReset } from '../../actions';
 import $ from 'jquery';
 
 import "../../style/App.css";
@@ -28,6 +28,13 @@ class ChallengeTriviaQuestion extends Component {
   removeQuestion() {
     const { id } = this.props.match.params;
     this.props.deleteQuestion(id);
+  }
+
+  componentWillUnmount() {
+    console.log("timer reset");
+    if (this.props.timer === 0) {
+      this.props.timerReset();
+    }
   }
 
   answerCheck(option) {
@@ -101,11 +108,16 @@ class ChallengeTriviaQuestion extends Component {
       return <div className="question-header">Returning to questions index...</div>;
     }
 
-    console.log(question.id);
+    // console.log(question.id);
+
+    if (this.props.timer < 0) {
+      this.props.timerStop();
+    }
 
     return (
       <div className="question">
-        <Link to="/questions" className="btn btn-danger pull-xs-right question-back-button">Back to index</Link>
+        <h4 className="index-header">Timer: {this.props.timer}</h4>
+        <Link to="/challenge/questions" className="btn btn-danger pull-xs-right question-back-button">Back to index</Link>
         <h3 className="question-header">Question:</h3>
         <p className="question-paragraph">{ question.question }</p>
         <h4 className="question-header choices-header">Choices:</h4>
@@ -121,8 +133,8 @@ class ChallengeTriviaQuestion extends Component {
   }
 }
 
-function mapStateToProps({ questions }, ownProps) {
-  return { question: questions[ownProps.match.params.id] };
+function mapStateToProps({ questions, timer }, ownProps) {
+  return { question: questions[ownProps.match.params.id], timer: timer };
 }
 
-export default connect(mapStateToProps, { fetchQuestion, deleteQuestion })(ChallengeTriviaQuestion);
+export default connect(mapStateToProps, { fetchQuestion, deleteQuestion, timerStop, timerReset })(ChallengeTriviaQuestion);

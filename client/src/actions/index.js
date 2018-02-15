@@ -8,7 +8,10 @@ import {
   CLEAR_AUTH_ERRORS,
   FETCH_QUESTIONS,
   FETCH_QUESTION,
-  DELETE_QUESTION
+  DELETE_QUESTION,
+  TIMER_START,
+  TIMER_RESET,
+  TIMER_STOP
 } from "./types";
 
 const ROOT_URL = `https://qriusity.com/v1/questions`;
@@ -78,5 +81,38 @@ export const fetchQuestion = (id) => {
 export const deleteQuestion = (id) => {
   return dispatch => {
     dispatch({ type: DELETE_QUESTION, payload: id })
+  }
+}
+
+let timer = null;
+export const timerStart = () => {
+  // clearInterval(timer);
+  return dispatch => {
+    timer = setInterval(() => {
+      dispatch({ type: TIMER_START })
+    }, 1000)
+  }
+
+  // timer = setInterval(() => {
+  //   return dispatch => {
+  //     dispatch({ type: TIMER_START })
+  //   }
+  // }, 1000)
+  // return dispatch => {
+  //   dispatch({ type: TIMER_START })
+  //   timerTick()
+  // }
+}
+
+export const timerStop = () => {
+  clearInterval(timer);
+  return dispatch => {
+    dispatch({ type: TIMER_STOP })
+  }
+}
+
+export const timerReset = () => {
+  return dispatch => {
+    dispatch({ type: TIMER_RESET })
   }
 }

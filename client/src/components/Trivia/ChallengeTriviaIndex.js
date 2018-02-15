@@ -2,7 +2,7 @@ import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchQuestions, deleteQuestion } from "../../actions";
+import { fetchQuestions, deleteQuestion, timerStart, timerStop, timerReset } from "../../actions";
 import $ from "jquery";
 
 import "../../style/App.css";
@@ -38,6 +38,32 @@ class ChallengeTriviaIndex extends Component {
       this.props.fetchQuestions();
       count++;
     }
+
+    this.props.timerStart();
+    // if (this.props.timer < 0) {
+    //   this.props.timerStop();
+    // }
+
+    // var timer = 5;
+    // if (this.props.timer === 5) {
+    //   var score = 0;
+    //   var gameTimer = setInterval(() => {
+    //     console.log("this.props.timer",this.props.timer);
+    //     console.log(this.props.timer);
+    //     console.log(score);
+    //     this.props.countDown();
+    //     if (this.props.timer === -1) {
+    //       clearInterval(gameTimer)
+    //     }
+    //   }, 1000);
+    // }
+  }
+
+  componentWillUnmount() {
+    console.log("timer reset");
+    if (this.props.timer === 0) {
+      this.props.timerReset();
+    }
   }
 
   onDeleteClick(id) {
@@ -61,8 +87,6 @@ class ChallengeTriviaIndex extends Component {
         return;
       }
 
-      console.log(question.id);
-
       return (
         <div key={question.id} className="index-item-container">
           <span
@@ -74,7 +98,7 @@ class ChallengeTriviaIndex extends Component {
           >
             <i className="fa fa-check-square" aria-hidden="true" />
           </span>
-          <Link className="index-link" to={`challenge/questions/${question.id}`}>
+          <Link className="index-link" to={`/challenge/questions/${question.id}`}>
             <li className="list-group-item index-item">
               {question.category.name}
             </li>
@@ -85,8 +109,12 @@ class ChallengeTriviaIndex extends Component {
   }
 
   render() {
+    if (this.props.timer < 0) {
+      this.props.timerStop();
+    }
     return (
       <div className="index">
+        <h4 className="index-header">Timer: {this.props.timer}</h4>
         <h3 className="index-header">Challenge Question Categories</h3>
         <ul className="list-group index-list">{this.renderQuestions()}</ul>
         <button
@@ -101,9 +129,9 @@ class ChallengeTriviaIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  return { questions: state.questions };
+  return { questions: state.questions, timer: state.timer };
 }
 
-export default connect(mapStateToProps, { fetchQuestions, deleteQuestion })(
+export default connect(mapStateToProps, { fetchQuestions, deleteQuestion, timerStart, timerStop, timerReset })(
 ChallengeTriviaIndex
 );
