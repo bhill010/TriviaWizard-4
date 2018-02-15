@@ -15,3 +15,7 @@ export const DELETE_QUESTION = 'delete_question';
 export const TIMER_START = 'timer_start';
 export const TIMER_RESET = 'timer_reset';
 export const TIMER_STOP = 'timer_stop';
+
+// Points Reducer
+export const POINTS_GAIN = 'points_gain';
+export const POINTS_RESET = 'points_reset';

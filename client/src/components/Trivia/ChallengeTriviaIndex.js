@@ -39,7 +39,10 @@ class ChallengeTriviaIndex extends Component {
       count++;
     }
 
-    this.props.timerStart();
+    if (this.props.timer === 30) {
+      this.props.timerStart();
+    }
+
     // if (this.props.timer < 0) {
     //   this.props.timerStop();
     // }
@@ -115,6 +118,7 @@ class ChallengeTriviaIndex extends Component {
     return (
       <div className="index">
         <h4 className="index-header">Timer: {this.props.timer}</h4>
+        <h4 className="index-header">Points: {this.props.points}</h4>
         <h3 className="index-header">Challenge Question Categories</h3>
         <ul className="list-group index-list">{this.renderQuestions()}</ul>
         <button
@@ -129,7 +133,7 @@ class ChallengeTriviaIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  return { questions: state.questions, timer: state.timer };
+  return { questions: state.questions, timer: state.timer, points: state.points };
 }
 
 export default connect(mapStateToProps, { fetchQuestions, deleteQuestion, timerStart, timerStop, timerReset })(

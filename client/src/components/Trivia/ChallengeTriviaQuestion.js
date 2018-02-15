@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchQuestion, deleteQuestion, timerStop, timerReset } from '../../actions';
+import { fetchQuestion, deleteQuestion, timerStop, timerReset, pointsGain, pointsReset } from '../../actions';
 import $ from 'jquery';
 
 import "../../style/App.css";
@@ -51,6 +51,7 @@ class ChallengeTriviaQuestion extends Component {
             $(li).addClass("right");
             $(".question-back-button").addClass("shake");
 
+            this.props.pointsGain();
             $(".choices-header").fadeOut(function() {
               $(".choices-header").text("Correct! Returning to questions index!");
             }).fadeIn();
@@ -117,6 +118,7 @@ class ChallengeTriviaQuestion extends Component {
     return (
       <div className="question">
         <h4 className="index-header">Timer: {this.props.timer}</h4>
+        <h4 className="index-header">Points: {this.props.points}</h4>
         <Link to="/challenge/questions" className="btn btn-danger pull-xs-right question-back-button">Back to index</Link>
         <h3 className="question-header">Question:</h3>
         <p className="question-paragraph">{ question.question }</p>
@@ -133,8 +135,8 @@ class ChallengeTriviaQuestion extends Component {
   }
 }
 
-function mapStateToProps({ questions, timer }, ownProps) {
-  return { question: questions[ownProps.match.params.id], timer: timer };
+function mapStateToProps({ questions, timer, points }, ownProps) {
+  return { question: questions[ownProps.match.params.id], timer: timer, points: points };
 }
 
-export default connect(mapStateToProps, { fetchQuestion, deleteQuestion, timerStop, timerReset })(ChallengeTriviaQuestion);
+export default connect(mapStateToProps, { fetchQuestion, deleteQuestion, timerStop, timerReset, pointsGain, pointsReset })(ChallengeTriviaQuestion);

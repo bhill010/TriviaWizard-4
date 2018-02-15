@@ -11,7 +11,9 @@ import {
   DELETE_QUESTION,
   TIMER_START,
   TIMER_RESET,
-  TIMER_STOP
+  TIMER_STOP,
+  POINTS_GAIN,
+  POINTS_RESET
 } from "./types";
 
 const ROOT_URL = `https://qriusity.com/v1/questions`;
@@ -92,16 +94,6 @@ export const timerStart = () => {
       dispatch({ type: TIMER_START })
     }, 1000)
   }
-
-  // timer = setInterval(() => {
-  //   return dispatch => {
-  //     dispatch({ type: TIMER_START })
-  //   }
-  // }, 1000)
-  // return dispatch => {
-  //   dispatch({ type: TIMER_START })
-  //   timerTick()
-  // }
 }
 
 export const timerStop = () => {
@@ -114,5 +106,17 @@ export const timerStop = () => {
 export const timerReset = () => {
   return dispatch => {
     dispatch({ type: TIMER_RESET })
+  }
+}
+
+export const pointsGain = () => {
+  return dispatch => {
+    dispatch({ type: POINTS_GAIN })
+  }
+}
+
+export const pointsReset = () => {
+  return dispatch => {
+    dispatch({ type: POINTS_RESET })
   }
 }
