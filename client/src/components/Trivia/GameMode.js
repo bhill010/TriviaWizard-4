@@ -14,7 +14,9 @@ class GameMode extends Component {
         </h3>
         <div className="gamemode-container">
           <div>
-            <button className="btn btn-warning index-button">Challenge</button>
+            <Link className="btn btn-info index-button" to="/challenge/questions">
+              Challenge
+            </Link>
           </div>
           <div>
             <Link className="btn btn-info index-button" to="/questions">

@@ -8,7 +8,7 @@ import "../../style/App.css";
 import "../../style/Trivia/TriviaQuestion.css";
 import "../../style/index.css";
 
-class TriviaQuestion extends Component {
+class ChallengeTriviaQuestion extends Component {
   constructor(props){
     super(props);
     this.answerCheck = this.answerCheck.bind(this);
@@ -96,7 +96,7 @@ class TriviaQuestion extends Component {
 
     if (!question) {
       setTimeout(() => {
-        this.props.history.push("/questions");
+        this.props.history.push("/challenge/questions");
       }, 2000);
       return <div className="question-header">Returning to questions index...</div>;
     }
@@ -125,4 +125,4 @@ function mapStateToProps({ questions }, ownProps) {
   return { question: questions[ownProps.match.params.id] };
 }
 
-export default connect(mapStateToProps, { fetchQuestion, deleteQuestion })(TriviaQuestion);
+export default connect(mapStateToProps, { fetchQuestion, deleteQuestion })(ChallengeTriviaQuestion);

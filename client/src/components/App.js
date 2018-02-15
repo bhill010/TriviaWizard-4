@@ -6,8 +6,12 @@ import { connect } from "react-redux";
 
 import Header from "./Misc/Header";
 import Home from "./Home/Home";
+
 import TriviaIndex from "./Trivia/TriviaIndex";
 import TriviaQuestion from "./Trivia/TriviaQuestion";
+import ChallengeTriviaIndex from "./Trivia/ChallengeTriviaIndex";
+import ChallengeTriviaQuestion from "./Trivia/ChallengeTriviaQuestion";
+
 import GameMode from "./Trivia/GameMode";
 import PrivateRoute from "./Misc/PrivateRoute";
 import SideNav from "./SideNav/SideNav";
@@ -44,6 +48,16 @@ class App extends Component {
                     authed={this.props.auth.loggedIn}
                     path="/questions"
                     component={TriviaIndex}
+                  />
+                  <PrivateRoute
+                    authed={this.props.auth.loggedIn}
+                    path="/challenge/questions/:id"
+                    component={ChallengeTriviaQuestion}
+                  />
+                  <PrivateRoute
+                    authed={this.props.auth.loggedIn}
+                    path="/challenge/questions"
+                    component={ChallengeTriviaIndex}
                   />
                 </Switch>
               </div>
