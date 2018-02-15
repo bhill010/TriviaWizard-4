@@ -64,7 +64,7 @@ class ChallengeTriviaIndex extends Component {
 
   componentWillUnmount() {
     console.log("timer reset");
-    if (this.props.timer === 0) {
+    if (this.props.timer <= 0) {
       this.props.timerReset();
     }
   }
@@ -114,6 +114,9 @@ class ChallengeTriviaIndex extends Component {
   render() {
     if (this.props.timer < 0) {
       this.props.timerStop();
+      // setTimeout(() => {
+      this.props.history.push("/challengeover");
+      // }, 1000);
     }
     return (
       <div className="index">

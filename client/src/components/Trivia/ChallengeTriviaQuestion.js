@@ -32,7 +32,7 @@ class ChallengeTriviaQuestion extends Component {
 
   componentWillUnmount() {
     console.log("timer reset");
-    if (this.props.timer === 0) {
+    if (this.props.timer <= 0) {
       this.props.timerReset();
     }
   }
@@ -47,18 +47,27 @@ class ChallengeTriviaQuestion extends Component {
 
           if(possibleAnswer !== this.renderAnswer(question.answers, question.option1, question.option2, question.option3, question.option4)) {
             $(li).addClass("wrong");
+
+            $(".choices-header").fadeOut(function() {
+              $(".choices-header").text("Incorrect! Returning to questions index");
+            }).fadeIn();
+
+            setTimeout(() => {
+              this.removeQuestion();
+            }, 1200);
+
           } else {
             $(li).addClass("right");
             $(".question-back-button").addClass("shake");
 
             this.props.pointsGain();
             $(".choices-header").fadeOut(function() {
-              $(".choices-header").text("Correct! Returning to questions index!");
+              $(".choices-header").text("Correct! +5 points!");
             }).fadeIn();
 
             setTimeout(() => {
               this.removeQuestion();
-            }, 2200);
+            }, 1200);
           }
         }
     });
@@ -105,7 +114,7 @@ class ChallengeTriviaQuestion extends Component {
     if (!question) {
       setTimeout(() => {
         this.props.history.push("/challenge/questions");
-      }, 2000);
+      }, 1000);
       return <div className="question-header">Returning to questions index...</div>;
     }
 
@@ -113,6 +122,7 @@ class ChallengeTriviaQuestion extends Component {
 
     if (this.props.timer < 0) {
       this.props.timerStop();
+      this.props.history.push("/challengeover");
     }
 
     return (

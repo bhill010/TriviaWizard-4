@@ -11,6 +11,7 @@ import TriviaIndex from "./Trivia/TriviaIndex";
 import TriviaQuestion from "./Trivia/TriviaQuestion";
 import ChallengeTriviaIndex from "./Trivia/ChallengeTriviaIndex";
 import ChallengeTriviaQuestion from "./Trivia/ChallengeTriviaQuestion";
+import ChallengeOver from "./Trivia/ChallengeOver";
 
 import GameMode from "./Trivia/GameMode";
 import PrivateRoute from "./Misc/PrivateRoute";
@@ -39,6 +40,11 @@ class App extends Component {
                   <Route exact path="/highscores" component={HighScores} />
                   <Route exact path="/gamemode" component={GameMode} />
                   <Route exact path="/" component={Home} />
+                  <PrivateRoute
+                    authed={this.props.auth.loggedIn}
+                    path="/challengeover"
+                    component={ChallengeOver}
+                  />
                   <PrivateRoute
                     authed={this.props.auth.loggedIn}
                     path="/questions/:id"
