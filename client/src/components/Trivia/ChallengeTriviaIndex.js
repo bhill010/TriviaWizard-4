@@ -2,7 +2,7 @@ import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchQuestions, deleteQuestion, timerStart, timerStop, timerReset } from "../../actions";
+import { fetchQuestions, deleteQuestion, timerStart, timerStop, timerReset, pointsReset } from "../../actions";
 import $ from "jquery";
 
 import "../../style/App.css";
@@ -39,32 +39,22 @@ class ChallengeTriviaIndex extends Component {
       count++;
     }
 
-    if (this.props.timer === 30) {
-      this.props.timerStart();
+    if (this.props.timer === 0) {
+      console.log("timer reset and points reset!");
+      this.props.timerReset();
+      this.props.pointsReset();
     }
 
-    // if (this.props.timer < 0) {
-    //   this.props.timerStop();
-    // }
-
-    // var timer = 5;
-    // if (this.props.timer === 5) {
-    //   var score = 0;
-    //   var gameTimer = setInterval(() => {
-    //     console.log("this.props.timer",this.props.timer);
-    //     console.log(this.props.timer);
-    //     console.log(score);
-    //     this.props.countDown();
-    //     if (this.props.timer === -1) {
-    //       clearInterval(gameTimer)
-    //     }
-    //   }, 1000);
-    // }
+    setTimeout(() => {
+      if (this.props.timer === 30) {
+        this.props.timerStart();
+      }
+    }, 800);
   }
 
   componentWillUnmount() {
-    console.log("timer reset");
     if (this.props.timer <= 0) {
+      console.log("unmount timer reset");
       this.props.timerReset();
     }
   }
@@ -139,6 +129,6 @@ function mapStateToProps(state) {
   return { questions: state.questions, timer: state.timer, points: state.points };
 }
 
-export default connect(mapStateToProps, { fetchQuestions, deleteQuestion, timerStart, timerStop, timerReset })(
+export default connect(mapStateToProps, { fetchQuestions, deleteQuestion, timerStart, timerStop, timerReset, pointsReset })(
 ChallengeTriviaIndex
 );

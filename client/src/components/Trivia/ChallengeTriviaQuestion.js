@@ -31,8 +31,8 @@ class ChallengeTriviaQuestion extends Component {
   }
 
   componentWillUnmount() {
-    console.log("timer reset");
     if (this.props.timer <= 0) {
+      console.log("timer reset");
       this.props.timerReset();
     }
   }

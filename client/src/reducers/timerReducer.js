@@ -15,7 +15,7 @@ export default function(state = defaultState, action) {
       return newState;
     case TIMER_RESET:
       var newState = state;
-      newState = 5;
+      newState = 30;
       return newState;
     default:
       return state;
