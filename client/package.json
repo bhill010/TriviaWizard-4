@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    },
+    "/api/users": {
+      "target": "http://localhost:5000"
+    },
     "/api/register": {
       "target": "http://localhost:5000"
     },

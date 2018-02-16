@@ -10,5 +10,5 @@ let highscoreSchema = new mongoose.Schema({
   }
 });
 
-let HighScore = mongoose.model("HighScore", userSchema);
+let HighScore = mongoose.model("HighScore", highscoreSchema);
 module.exports = HighScore;

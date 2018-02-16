@@ -40,6 +40,7 @@ passport.deserializeUser(function(id, done) {
 })
 
 require("./routes/userRoutes")(app);
+require("./routes/highscoreRoutes")(app);
 
 
 if (process.env.NODE_ENV === "production") {

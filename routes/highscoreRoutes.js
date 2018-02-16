@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 var express = require("express");
 var router = express.Router();
 const HighScore = require("../models/highscore");
+const User = require("../models/user");
 const passport = require("passport");
 
 module.exports = app => {
@@ -45,24 +46,24 @@ module.exports = app => {
     });
   });
 
-// UPDATE a highscore
-  app.put("/api/user/:id/highscores/:highscore_id", function(req, res) {
-    HighScore.findByIdAndUpdate(
-      req.params.highscore_id,
+// UPDATE a user's highscore
+  app.put("/api/users/:id/highscores", function(req, res) {
+    User.findByIdAndUpdate(
+      req.params.id,
       req.body.highscore,
       { new: true },
-      function(err, updatedHighScore) {
+      function(err, updatedUser) {
         if (err) {
           res.redirect("/");
         } else {
           const highscore = req.body.highscore;
-          updatedHighScore.score = highscore;
-          updatedHighScore.save(function(err) {
+          updatedUser.highscore = highscore;
+          updatedUser.save(function(err) {
             if (err) {
               console.log(err);
               res.redirect("/");
             } else {
-              res.send(updatedHighScore);
+              res.send(updatedUser);
             }
           });
         }

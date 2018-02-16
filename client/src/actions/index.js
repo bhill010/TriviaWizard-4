@@ -123,12 +123,22 @@ export const pointsReset = () => {
   };
 };
 
-export const createHighScore = (score, id, ownerID) => {
+export const createHighScore = (highscore, id, ownerID) => {
   return dispatch => {
     axios
-      .post(`/api/users/${id}/highscores`, { score, ownerID })
+      .post(`/api/users/${id}/highscores`, { highscore, ownerID })
       .then(response => {
         dispatch({ type: CREATE_HIGHSCORE, payload: response.data });
+      });
+  };
+};
+
+export const updateHighScore = (highscore, ownerID, cb = null) => {
+  return dispatch => {
+    axios
+      .put(`/api/users/${ownerID}/highscores`, { highscore })
+      .then(response => {
+        dispatch({ type: UPDATE_HIGHSCORE, payload: response.data });
       });
   };
 };

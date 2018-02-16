@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { pointsReset } from "../../actions";
+import { pointsReset, updateHighScore } from "../../actions";
 
 import "../../style/Trivia/GameMode.css";
 import "../../style/App.css";
 import "../../style/index.css";
 
 class ChallengeOver extends Component {
+  componentWillMount() {
+    if ( this.props.points > this.props.auth.user.highscore ) {
+      console.log("sending action to update high score...");
+      this.props.updateHighScore(this.props.points, this.props.auth.user._id);
+    }
+  }
+
   componentWillUnmount() {
     this.props.pointsReset();
   }
@@ -48,6 +55,6 @@ function mapStateToProps(state) {
   return { points: state.points, auth: state.auth };
 }
 
-export default connect(mapStateToProps, { pointsReset })(
+export default connect(mapStateToProps, { pointsReset, updateHighScore })(
 ChallengeOver
 );
