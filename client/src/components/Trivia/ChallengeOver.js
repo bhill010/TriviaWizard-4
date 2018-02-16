@@ -8,6 +8,12 @@ import "../../style/App.css";
 import "../../style/index.css";
 
 class ChallengeOver extends Component {
+  constructor(props) {
+    super(props);
+
+    this.gameOverMessage = this.gameOverMessage.bind(this);
+  }
+
   componentWillMount() {
     if ( this.props.points > this.props.auth.user.highscore ) {
       console.log("sending action to update high score...");
@@ -19,14 +25,29 @@ class ChallengeOver extends Component {
     this.props.pointsReset();
   }
 
+  gameOverMessage() {
+    if ( this.props.points > this.props.auth.user.highscore ) {
+      return (
+        <h3 className="index-header">
+          Great job!! You scored { this.props.points } points and beat your previous
+          high score of { this.props.auth.user.highscore } points!
+        </h3>
+      )
+    } else {
+      return (
+        <h3 className="index-header">
+          You scored { this.props.points } points! Play again to try beating your
+          high score of { this.props.auth.user.highscore } points!
+        </h3>
+      )
+    }
+  }
+
   render() {
     console.log("this.props.auth.user.highscore :", this.props.auth.user.highscore);
     return (
       <div className="index">
-        <h3 className="index-header">
-          You scored { this.props.points } points! That beats your previous
-          high score of { this.props.auth.user.highscore } points!
-        </h3>
+        { this.gameOverMessage() }
         <div className="gamemode-container">
           <div>
             <h4 className="index-subheader">
