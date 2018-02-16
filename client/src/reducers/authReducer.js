@@ -4,7 +4,8 @@ import {
   LOGIN,
   LOGIN_FAILED,
   LOGOUT,
-  CLEAR_AUTH_ERRORS
+  CLEAR_AUTH_ERRORS,
+  UPDATE_HIGHSCORE
 } from "../actions/types";
 
 import _ from "lodash";
@@ -48,6 +49,14 @@ export default function(state = defaultState, action) {
       return _.merge({}, state, {
         errorMessage: ""
       });
+    case UPDATE_HIGHSCORE:
+      console.log("reducer new score data", action.payload);
+      let newHighScore = action.payload.highscore
+      let newState = _.merge({}, state, {
+        highscore: newHighScore
+      });
+      console.log("highscore reducer new state", newState);
+      return newState;
     default:
       return state;
   }

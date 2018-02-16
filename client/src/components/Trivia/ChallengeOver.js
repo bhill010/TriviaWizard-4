@@ -20,11 +20,12 @@ class ChallengeOver extends Component {
   }
 
   render() {
+    console.log("this.props.auth.user.highscore :", this.props.auth.user.highscore);
     return (
       <div className="index">
         <h3 className="index-header">
-          You scored { this.props.points } points!
-          Your high score is { this.props.auth.user.highscore } points!
+          You scored { this.props.points } points! That beats your previous
+          high score of { this.props.auth.user.highscore } points!
         </h3>
         <div className="gamemode-container">
           <div>
