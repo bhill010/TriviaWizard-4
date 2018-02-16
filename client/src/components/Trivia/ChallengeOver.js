@@ -17,6 +17,7 @@ class ChallengeOver extends Component {
       <div className="index">
         <h3 className="index-header">
           You scored { this.props.points } points!
+          Your high score is { this.props.auth.user.highscore } points!
         </h3>
         <div className="gamemode-container">
           <div>
@@ -44,7 +45,7 @@ class ChallengeOver extends Component {
 }
 
 function mapStateToProps(state) {
-  return { points: state.points };
+  return { points: state.points, auth: state.auth };
 }
 
 export default connect(mapStateToProps, { pointsReset })(

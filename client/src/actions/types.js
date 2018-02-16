@@ -19,3 +19,7 @@ export const TIMER_STOP = 'timer_stop';
 // Points Reducer
 export const POINTS_GAIN = 'points_gain';
 export const POINTS_RESET = 'points_reset';
+
+// HighScore Reducer
+export const CREATE_HIGHSCORE = 'create_highscore';
+export const UPDATE_HIGHSCORE = 'update_highscore';

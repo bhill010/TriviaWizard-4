@@ -4,7 +4,11 @@ const passportLocalMongoose = require("passport-local-mongoose");
 let userSchema = new mongoose.Schema({
   username: String,
   password: String,
-  highscore: Number
+  highscore: {
+    type: Number,
+    ref: "HighScore",
+    default: 0
+  }
 });
 
 userSchema.plugin(passportLocalMongoose);

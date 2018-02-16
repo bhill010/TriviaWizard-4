@@ -8,6 +8,7 @@ import "../../style/index.css";
 
 class Home extends Component {
   render() {
+    console.log("this.props.auth", this.props.auth);
     if (!this.props.auth.loggedIn) {
       return (
         <div className="index">

@@ -13,7 +13,9 @@ import {
   TIMER_RESET,
   TIMER_STOP,
   POINTS_GAIN,
-  POINTS_RESET
+  POINTS_RESET,
+  CREATE_HIGHSCORE,
+  UPDATE_HIGHSCORE
 } from "./types";
 
 const ROOT_URL = `https://qriusity.com/v1/questions`;
@@ -67,56 +69,66 @@ export const logout = cb => {
 export const fetchQuestions = (pageNumber = PAGE_NUMBER) => {
   return dispatch => {
     axios.get(`${ROOT_URL}?page=${pageNumber}&limit=5`).then(response => {
-      dispatch({ type: FETCH_QUESTIONS, payload: response })
+      dispatch({ type: FETCH_QUESTIONS, payload: response });
     });
-  }
-}
+  };
+};
 
-export const fetchQuestion = (id) => {
+export const fetchQuestion = id => {
   return dispatch => {
     axios.get(`${ROOT_URL}/${id}`).then(response => {
-      dispatch({ type: FETCH_QUESTION, payload: response })
+      dispatch({ type: FETCH_QUESTION, payload: response });
     });
-  }
-}
+  };
+};
 
-export const deleteQuestion = (id) => {
+export const deleteQuestion = id => {
   return dispatch => {
-    dispatch({ type: DELETE_QUESTION, payload: id })
-  }
-}
+    dispatch({ type: DELETE_QUESTION, payload: id });
+  };
+};
 
 let timer = null;
 export const timerStart = () => {
   // clearInterval(timer);
   return dispatch => {
     timer = setInterval(() => {
-      dispatch({ type: TIMER_START })
-    }, 1000)
-  }
-}
+      dispatch({ type: TIMER_START });
+    }, 1000);
+  };
+};
 
 export const timerStop = () => {
   clearInterval(timer);
   return dispatch => {
-    dispatch({ type: TIMER_STOP })
-  }
-}
+    dispatch({ type: TIMER_STOP });
+  };
+};
 
 export const timerReset = () => {
   return dispatch => {
-    dispatch({ type: TIMER_RESET })
-  }
-}
+    dispatch({ type: TIMER_RESET });
+  };
+};
 
 export const pointsGain = () => {
   return dispatch => {
-    dispatch({ type: POINTS_GAIN })
-  }
-}
+    dispatch({ type: POINTS_GAIN });
+  };
+};
 
 export const pointsReset = () => {
   return dispatch => {
-    dispatch({ type: POINTS_RESET })
-  }
-}
+    dispatch({ type: POINTS_RESET });
+  };
+};
+
+export const createHighScore = (score, id, ownerID) => {
+  return dispatch => {
+    axios
+      .post(`/api/users/${id}/highscores`, { score, ownerID })
+      .then(response => {
+        dispatch({ type: CREATE_HIGHSCORE, payload: response.data });
+      });
+  };
+};
