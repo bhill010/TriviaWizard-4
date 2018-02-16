@@ -26,6 +26,12 @@
   font-size: 50px;
 }
 
+.challenge-header {
+  margin-top: 10px;
+  color: white;
+  font-size: 25px;
+}
+
 .index-subheader {
   color: white;
   font-size: 25px;
@@ -37,7 +43,7 @@
 }
 
 .index-list {
-  display: flex !important;
+  /*display: flex !important;*/
   flex-direction: column;
 }
 

@@ -110,16 +110,20 @@ class ChallengeTriviaIndex extends Component {
     }
     return (
       <div className="index">
-        <h4 className="index-header">Timer: {this.props.timer}</h4>
-        <h4 className="index-header">Points: {this.props.points}</h4>
-        <h3 className="index-header">Challenge Question Categories</h3>
-        <ul className="list-group index-list">{this.renderQuestions()}</ul>
-        <button
-          className="btn btn-primary index-button"
-          onClick={this.newQuestions}
-        >
-          Generate New Questions
-        </button>
+        <div className="challenge-info">
+          <h4 className="index-header challenge-header">Timer: {this.props.timer}</h4>
+          <h4 className="index-header challenge-header">Points: {this.props.points}</h4>
+        </div>
+        <div className="challenge-questions">
+          <h3 className="index-header challenge-header">Challenge Question Categories</h3>
+          <ul className="list-group index-list">{this.renderQuestions()}</ul>
+          <button
+            className="btn btn-primary index-button"
+            onClick={this.newQuestions}
+          >
+            Generate New Questions
+          </button>
+        </div>
       </div>
     );
   }
