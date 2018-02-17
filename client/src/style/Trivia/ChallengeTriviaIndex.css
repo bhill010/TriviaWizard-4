@@ -1,0 +1,35 @@
+.challenge-scoreboard {
+  margin-top: 40px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.challenge-index {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 85%;
+}
+
+.challenge-info {
+  flex-basis: 20%;
+}
+
+.challenge-questions {
+  flex-basis: 80%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.challenge-questions-container {
+  position: absolute;
+  left: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -134,10 +134,12 @@ export const createHighScore = (highscore, id, ownerID) => {
 };
 
 export const updateHighScore = (highscore, ownerID, cb = null) => {
+  console.log("update high score action called...");
   return dispatch => {
     axios
       .put(`/api/users/${ownerID}/highscores`, { highscore })
       .then(response => {
+        console.log("update high score action response: ", response.data);
         dispatch({ type: UPDATE_HIGHSCORE, payload: response.data });
       });
   };

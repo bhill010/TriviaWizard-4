@@ -15,14 +15,18 @@ class ChallengeOver extends Component {
   }
 
   componentWillMount() {
-    if ( this.props.points > this.props.auth.user.highscore ) {
-      console.log("sending action to update high score...");
-      this.props.updateHighScore(this.props.points, this.props.auth.user._id);
-    }
+    // if ( this.props.points > this.props.auth.user.highscore ) {
+    //   console.log("sending action to update high score...");
+    //   this.props.updateHighScore(this.props.points, this.props.auth.user._id);
+    // }
   }
 
   componentWillUnmount() {
     this.props.pointsReset();
+    if ( this.props.points > this.props.auth.user.highscore ) {
+      console.log("sending action to update high score...");
+      this.props.updateHighScore(this.props.points, this.props.auth.user._id);
+    }
   }
 
   gameOverMessage() {

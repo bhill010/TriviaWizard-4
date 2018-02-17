@@ -7,6 +7,7 @@ import $ from "jquery";
 
 import "../../style/App.css";
 import "../../style/Trivia/TriviaIndex.css";
+import "../../style/Trivia/ChallengeTriviaIndex.css";
 import "../../style/index.css";
 
 
@@ -109,20 +110,25 @@ class ChallengeTriviaIndex extends Component {
       // }, 1000);
     }
     return (
-      <div className="index">
+      <div className="challenge-index">
         <div className="challenge-info">
-          <h4 className="index-header challenge-header">Timer: {this.props.timer}</h4>
-          <h4 className="index-header challenge-header">Points: {this.props.points}</h4>
+          <div className="challenge-scoreboard">
+            <h4 className="index-header challenge-header">Timer: {this.props.timer}</h4>
+            <h4 className="index-header challenge-header">Points: {this.props.points}</h4>
+            <h4 className="index-header challenge-header">High Score: {this.props.auth.user.highscore}</h4>
+          </div>
         </div>
         <div className="challenge-questions">
-          <h3 className="index-header challenge-header">Challenge Question Categories</h3>
-          <ul className="list-group index-list">{this.renderQuestions()}</ul>
-          <button
-            className="btn btn-primary index-button"
-            onClick={this.newQuestions}
-          >
-            Generate New Questions
-          </button>
+          <div className="challenge-questions-container">
+            <h3 className="index-header challenge-header">Challenge Question Categories</h3>
+            <ul className="list-group index-list">{this.renderQuestions()}</ul>
+            <button
+              className="btn btn-primary index-button"
+              onClick={this.newQuestions}
+            >
+              Generate New Questions
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -130,7 +136,7 @@ class ChallengeTriviaIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  return { questions: state.questions, timer: state.timer, points: state.points };
+  return { questions: state.questions, timer: state.timer, points: state.points, auth: state.auth };
 }
 
 export default connect(mapStateToProps, { fetchQuestions, deleteQuestion, timerStart, timerStop, timerReset, pointsReset })(
