@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { pointsReset, updateHighScore } from "../../actions";
+import { pointsReset, updateHighScore, fetchQuestions } from "../../actions";
 
 import "../../style/Trivia/GameMode.css";
 import "../../style/App.css";
@@ -19,6 +19,8 @@ class ChallengeOver extends Component {
     //   console.log("sending action to update high score...");
     //   this.props.updateHighScore(this.props.points, this.props.auth.user._id);
     // }
+    let pageNumber = Math.floor(Math.random() * 2000);
+    this.props.fetchQuestions(pageNumber);
   }
 
   componentWillUnmount() {
@@ -81,6 +83,6 @@ function mapStateToProps(state) {
   return { points: state.points, auth: state.auth };
 }
 
-export default connect(mapStateToProps, { pointsReset, updateHighScore })(
+export default connect(mapStateToProps, { pointsReset, updateHighScore, fetchQuestions })(
 ChallengeOver
 );

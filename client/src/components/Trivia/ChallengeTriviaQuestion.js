@@ -6,6 +6,7 @@ import $ from 'jquery';
 
 import "../../style/App.css";
 import "../../style/Trivia/TriviaQuestion.css";
+import "../../style/Trivia/ChallengeTriviaIndex.css";
 import "../../style/index.css";
 
 class ChallengeTriviaQuestion extends Component {
@@ -126,27 +127,35 @@ class ChallengeTriviaQuestion extends Component {
     }
 
     return (
-      <div className="question">
-        <h4 className="index-header">Timer: {this.props.timer}</h4>
-        <h4 className="index-header">Points: {this.props.points}</h4>
-        <Link to="/challenge/questions" className="btn btn-danger pull-xs-right question-back-button">Back to index</Link>
-        <h3 className="question-header">Question:</h3>
-        <p className="question-paragraph">{ question.question }</p>
-        <h4 className="question-header choices-header">Choices:</h4>
-        <ul className="list-group question-list">
-          <li onClick={event => {event.preventDefault(); this.answerCheck(question.option1);}} className="list-group-item question-item">{question.option1}</li>
-          <li onClick={event => {event.preventDefault(); this.answerCheck(question.option2);}} className="list-group-item question-item">{question.option2}</li>
-          <li onClick={event => {event.preventDefault(); this.answerCheck(question.option3);}} className="list-group-item question-item">{question.option3}</li>
-          <li onClick={event => {event.preventDefault(); this.answerCheck(question.option4);}} className="list-group-item question-item">{question.option4}</li>
-        </ul>
-        <button className="btn btn-primary question-button" onClick={this.answerCheckAll}>Answer</button>
+      <div className="challenge-index">
+        <div className="challenge-info">
+          <div className="challenge-scoreboard">
+            <h4 className="index-header challenge-header">Timer: {this.props.timer}</h4>
+            <h4 className="index-header challenge-header">Points: {this.props.points}</h4>
+            <h4 className="index-header challenge-header">High Score: {this.props.auth.user.highscore}</h4>
+            <Link to="/challenge/questions" className="btn btn-danger pull-xs-right question-back-button challenge-back-button">Back to index</Link>
+          </div>
+        </div>
+        <div className="challenge-questions">
+          <div className="challenge-questions-container question-item-container">
+            <h3 className="question-header challenge-header">Question:</h3>
+            <p className="question-paragraph">{ question.question }</p>
+            <h4 className="question-header choices-header challenge-header">Choices:</h4>
+            <ul className="list-group question-list">
+              <li onClick={event => {event.preventDefault(); this.answerCheck(question.option1);}} className="list-group-item question-item">{question.option1}</li>
+              <li onClick={event => {event.preventDefault(); this.answerCheck(question.option2);}} className="list-group-item question-item">{question.option2}</li>
+              <li onClick={event => {event.preventDefault(); this.answerCheck(question.option3);}} className="list-group-item question-item">{question.option3}</li>
+              <li onClick={event => {event.preventDefault(); this.answerCheck(question.option4);}} className="list-group-item question-item">{question.option4}</li>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-function mapStateToProps({ questions, timer, points }, ownProps) {
-  return { question: questions[ownProps.match.params.id], timer: timer, points: points };
+function mapStateToProps({ questions, timer, points, auth }, ownProps) {
+  return { question: questions[ownProps.match.params.id], timer: timer, points: points, auth: auth };
 }
 
 export default connect(mapStateToProps, { fetchQuestion, deleteQuestion, timerStop, timerReset, pointsGain, pointsReset })(ChallengeTriviaQuestion);
