@@ -12,8 +12,8 @@ class SideNav extends Component {
     if (!this.props.auth.loggedIn) {
       return (
         <div className="sidenav__section">
-          <div>
-            <Link className="btn btn-success top_margin" to="/highscores">
+          <div className="sidenav__container">
+            <Link className="btn btn-success sidenav__button sidenav__highscore" to="/highscores">
               High Scores
             </Link>
           </div>
@@ -22,13 +22,13 @@ class SideNav extends Component {
     } else {
       return (
         <div className="sidenav__section">
-          <div>
-            <Link className="btn btn-success top_margin" to="/dashboard">
+          <div className="sidenav__container">
+            <Link className="btn btn-success sidenav__button sidenav__dashboard" to="/dashboard">
               Dashboard
             </Link>
           </div>
-          <div>
-            <Link className="btn btn-success top_margin" to="/highscores">
+          <div className="sidenav__container">
+            <Link className="btn btn-success sidenav__button sidenav__highscore" to="/highscores">
               High Scores
             </Link>
           </div>

@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 
 import "../../style/SideNav/SideNav.css";
 import "../../style/App.css";
+import "../../style/SideNav/HighScores.css";
 import "../../style/index.css";
 
 class HighScores extends Component {
@@ -36,21 +37,21 @@ class HighScores extends Component {
 
     return (
       <div className="index">
-        <div>
-          HIGHSCORES PAGE
+        <div className="index-header">
+          Trivia Wizard Top 5 Scores
         </div>
-        <ul>
+        <ul className="list-group index-list">
           { _.map(highscores, (score, idx) => {
             return (
-              <div key={idx}>
+              <li className="list-group-item index-item highscore-item" key={idx}>
                 <h4>Username: { score.username }</h4>
                 <h4>Score: { score.score }</h4>
-              </div>
+              </li>
             )
           })}
         </ul>
-        <Link className="btn btn-success top_margin" to="/">
-          Back to /
+        <Link className="btn btn-primary index-button" to="/">
+          Back to Homepage
         </Link>
       </div>
     )

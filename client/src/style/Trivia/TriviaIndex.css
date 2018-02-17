@@ -1,6 +1,6 @@
 /* INDEX STYLING */
 .fa-check-square {
-  font-size: 30px !important;
+  font-size: 30px;
   /*transition: 0.2s color;*/
   color: white;
 }
@@ -10,7 +10,7 @@
 }
 
 .index, .question {
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   align-items: center;
   flex-basis: 85%;
@@ -56,7 +56,7 @@
 }
 
 .index-item-container {
-  display: flex !important;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-basis: 80px;
@@ -64,7 +64,7 @@
 
 .index-item, .question-item {
   margin: 15px;
-  text-decoration: none !important;
+  text-decoration: none;
   transition: 0.2s background, 0.2s border-color, 0.2s color;
 }
 
@@ -72,17 +72,17 @@
   background-color: #9fdce3;
   border-color: #9fdce3;
   color: white;
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 li.index-item {
-  display: flex !important;
+  display: flex;
   justify-content: center;
 }
 
 .index-button, .question-button {
   margin: 15px;
-  font-size: 20px !important;
+  font-size: 20px;
   padding: 10px 30px;
   animation-name: buttonColor;
   animation-duration: 10s;
