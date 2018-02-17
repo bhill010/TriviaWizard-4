@@ -36,18 +36,21 @@
   margin-top: 40px;
   color: white;
   font-size: 50px;
+  letter-spacing: 5px;
 }
 
 .challenge-header {
   margin-top: 10px;
   color: white;
   font-size: 25px;
+  letter-spacing: 5px;
 }
 
 .index-subheader {
   color: white;
   font-size: 25px;
   margin-top: 20px;
+  letter-spacing: 1.5px;
 }
 
 .index-list, .question-list {
@@ -100,6 +103,7 @@ li.index-item {
   animation-duration: 10s;
   animation-timing-duration: linear;
   animation-iteration-count: infinite;
+  letter-spacing: 1.5px;
 
   box-shadow: 0 6px #2e4951;
   position: relative;

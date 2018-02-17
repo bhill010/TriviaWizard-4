@@ -53,22 +53,24 @@ class GameMode extends Component {
     }
     return (
       <div className="index">
-        <h3 className="index-header">
-          Which game mode would you like to play?
-        </h3>
-        <div className="gamemode-container">
-          <div>
-            <button
-              className="btn btn-info show-link index-button"
-              onClick={this.setupChallengeMode}
-            >
-              Challenge
-            </button>
-          </div>
-          <div>
-            <Link className="btn btn-info index-button" to="/questions">
-              Casual
-            </Link>
+        <div className="index-header-container">
+          <h3 className="index-header">
+            Which game mode would you like to play?
+          </h3>
+          <div className="gamemode-container">
+            <div>
+              <button
+                className="btn btn-info show-link index-button"
+                onClick={this.setupChallengeMode}
+              >
+                Challenge
+              </button>
+            </div>
+            <div>
+              <Link className="btn btn-info index-button" to="/questions">
+                Casual
+              </Link>
+            </div>
           </div>
         </div>
       </div>

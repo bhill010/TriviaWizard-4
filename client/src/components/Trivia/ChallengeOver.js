@@ -31,17 +31,27 @@ class ChallengeOver extends Component {
   gameOverMessage() {
     if ( this.props.points > this.props.auth.user.highscore ) {
       return (
-        <h3 className="index-header">
-          Great job!! You scored { this.props.points } points and beat your previous
-          high score of { this.props.auth.user.highscore } points!
-        </h3>
+        <div>
+          <h3 className="index-header">
+            Great job!! You scored { this.props.points } points!
+          </h3>
+          <h4 className="index-subheader">
+            You beat your previous
+            high score of { this.props.auth.user.highscore } points!
+          </h4>
+        </div>
       )
     } else {
       return (
-        <h3 className="index-header">
-          You scored { this.props.points } points! Play again to try beating your
-          high score of { this.props.auth.user.highscore } points!
-        </h3>
+        <div>
+          <h3 className="index-header">
+            You scored { this.props.points } points!
+          </h3>
+          <h4 className="index-subheader">
+            Play again to try beating your
+            high score of { this.props.auth.user.highscore } points!
+          </h4>
+        </div>
       )
     }
   }
@@ -50,25 +60,29 @@ class ChallengeOver extends Component {
     console.log("this.props.auth.user.highscore :", this.props.auth.user.highscore);
     return (
       <div className="index">
-        { this.gameOverMessage() }
-        <div className="gamemode-container">
-          <div>
+        <div className="index-header-container">
+          { this.gameOverMessage() }
+          <div className="gamemode-container challenge-over-container">
             <h4 className="index-subheader">
               Would you like to play again?
             </h4>
-            <Link className="btn btn-info index-button" to="/challenge/questions">
-              Challenge!
-            </Link>
-          </div>
-          <div>
-            <Link className="btn btn-info index-button" to="/questions">
-              Casual
-            </Link>
-          </div>
-          <div>
-            <Link className="btn btn-warning index-button" to="/">
-              My brain needs to recover!
-            </Link>
+            <div className="challenge-button-container">
+              <div>
+                <Link className="btn btn-info index-button" to="/challenge/questions">
+                  Challenge!
+                </Link>
+              </div>
+              <div>
+                <Link className="btn btn-info index-button" to="/questions">
+                  Casual
+                </Link>
+              </div>
+              <div>
+                <Link className="btn btn-warning index-button" to="/">
+                  My brain needs to recover!
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

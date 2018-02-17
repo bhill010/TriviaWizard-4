@@ -15,7 +15,7 @@ body {
   /*padding: 0;*/
   font-family: sans-serif;
   padding: 20px;
-  background-color: #dbf1f7;
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   /*background-image: url(../img/trivia.jpg);*/
 }
 
