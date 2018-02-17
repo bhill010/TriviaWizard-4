@@ -98,7 +98,13 @@ class TriviaQuestion extends Component {
       setTimeout(() => {
         this.props.history.push("/questions");
       }, 2000);
-      return <div className="question-header">Returning to questions index...</div>;
+      return (
+        <div className="redirect-container">
+          <div className="question-header">
+            Returning to questions index...
+          </div>
+        </div>
+      );
     }
 
     console.log(question.id);
@@ -106,16 +112,18 @@ class TriviaQuestion extends Component {
     return (
       <div className="question">
         <Link to="/questions" className="btn btn-danger pull-xs-right question-back-button">Back to index</Link>
-        <h3 className="question-header">Question:</h3>
-        <p className="question-paragraph">{ question.question }</p>
-        <h4 className="question-header choices-header">Choices:</h4>
-        <ul className="list-group question-list">
-          <li onClick={event => {event.preventDefault(); this.answerCheck(question.option1);}} className="list-group-item question-item">{question.option1}</li>
-          <li onClick={event => {event.preventDefault(); this.answerCheck(question.option2);}} className="list-group-item question-item">{question.option2}</li>
-          <li onClick={event => {event.preventDefault(); this.answerCheck(question.option3);}} className="list-group-item question-item">{question.option3}</li>
-          <li onClick={event => {event.preventDefault(); this.answerCheck(question.option4);}} className="list-group-item question-item">{question.option4}</li>
-        </ul>
-        <button className="btn btn-primary question-button" onClick={this.answerCheckAll}>Answer</button>
+        <div className="question-container">
+          <h3 className="question-header challenge-header">Question:</h3>
+          <p className="question-paragraph">{ question.question }</p>
+          <h4 className="question-header choices-header challenge-header">Choices:</h4>
+          <ul className="list-group question-list">
+            <li onClick={event => {event.preventDefault(); this.answerCheck(question.option1);}} className="list-group-item question-item">{question.option1}</li>
+            <li onClick={event => {event.preventDefault(); this.answerCheck(question.option2);}} className="list-group-item question-item">{question.option2}</li>
+            <li onClick={event => {event.preventDefault(); this.answerCheck(question.option3);}} className="list-group-item question-item">{question.option3}</li>
+            <li onClick={event => {event.preventDefault(); this.answerCheck(question.option4);}} className="list-group-item question-item">{question.option4}</li>
+          </ul>
+          <button className="btn btn-primary question-button" onClick={this.answerCheckAll}>Answer</button>
+        </div>
       </div>
     );
   }

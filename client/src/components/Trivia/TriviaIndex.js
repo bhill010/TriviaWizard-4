@@ -7,6 +7,7 @@ import $ from "jquery";
 
 import "../../style/App.css";
 import "../../style/Trivia/TriviaIndex.css";
+import "../../style/Trivia/ChallengeTriviaIndex.css";
 import "../../style/index.css";
 
 

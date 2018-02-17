@@ -52,13 +52,13 @@ class Login extends Component {
     return (
       <div className="center_container index">
         <h3 className="index-header">Login Page</h3>
-        <div>{this.errorHandler()}</div>
+        <h4 className="index-subheader">{this.errorHandler()}</h4>
         <form className="form" onSubmit={this.onSubmit}>
           <input
             className="form-control form__input form__username right_margin"
             type="text"
             name="username"
-            placeholder="name"
+            placeholder="username"
           />
           <input
             className="form-control form__input form__password right_margin"
@@ -68,8 +68,8 @@ class Login extends Component {
           />
           <input className="btn btn-primary form__submit" type="submit" />
         </form>
-        <Link className="btn btn-success top_margin" to="/">
-          Back to /
+        <Link className="btn btn-success top_margin auth-button" to="/">
+          Back to Home Page
         </Link>
       </div>
     );

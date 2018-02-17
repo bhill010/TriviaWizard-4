@@ -41,3 +41,9 @@
 .challenge-back-button {
   align-self: flex-start;
 }
+
+.redirect-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

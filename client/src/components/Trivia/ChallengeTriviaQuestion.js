@@ -116,7 +116,13 @@ class ChallengeTriviaQuestion extends Component {
       setTimeout(() => {
         this.props.history.push("/challenge/questions");
       }, 1000);
-      return <div className="question-header">Returning to questions index...</div>;
+      return (
+        <div className="redirect-container">
+          <div className="question-header">
+            Returning to questions index...
+          </div>
+        </div>
+      )
     }
 
     // console.log(question.id);

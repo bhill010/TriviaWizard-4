@@ -12,30 +12,37 @@ class Home extends Component {
     if (!this.props.auth.loggedIn) {
       return (
         <div className="index">
-          <h3 className="index-header">
-            Welcome to Trivia Wizard!
-          </h3>
-          <h4 className="index-subheader">
-            Please register or login to put
-            your knowledge to the test!
-          </h4>
+          <div className="index-container">
+            <h3 className="index-header">
+              Welcome to Trivia Wizard!
+            </h3>
+            <h4 className="index-subheader">
+              Please register or login to put
+              your knowledge to the test!
+            </h4>
+            <Link className="btn btn-info index-button home-button" to="/register">
+              Let's get started!
+            </Link>
+          </div>
         </div>
 
       )
     } else {
       return (
         <div className="index">
-          <h3 className="index-header">
-            Welcome back!
-          </h3>
-          <h4 className="index-subheader">
-            Why don't you try putting
-            your knowledge to the test?
-          </h4>
-          <div>
-            <Link className="btn btn-primary index-button index-link" to="/gamemode">
-              Questions Page
-            </Link>
+          <div className="index-container">
+            <h3 className="index-header">
+              Welcome back!
+            </h3>
+            <h4 className="index-subheader">
+              Why don't you try putting
+              your knowledge to the test?
+            </h4>
+            <div>
+              <Link className="btn btn-primary index-button index-link home-button" to="/gamemode">
+                Questions Page
+              </Link>
+            </div>
           </div>
         </div>
       )

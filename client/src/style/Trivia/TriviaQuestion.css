@@ -7,9 +7,10 @@
 
 .question-back-button {
   align-self: flex-end;
-  margin-top: 20px;
+  margin-top: 50px;
   font-size: 20px !important;
   padding: 10px 30px;
+  margin-right: 50px;
 }
 
 .wrong {
