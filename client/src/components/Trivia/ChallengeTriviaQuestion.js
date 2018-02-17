@@ -20,6 +20,8 @@ class ChallengeTriviaQuestion extends Component {
   }
 
   componentDidMount() {
+    $('.sidenav__section > .sidenav__container').addClass('hidden');
+
     if(!this.props.question){
       const { id } = this.props.match.params;
       this.props.fetchQuestion(id);
@@ -32,6 +34,8 @@ class ChallengeTriviaQuestion extends Component {
   }
 
   componentWillUnmount() {
+    $('.sidenav__section > .sidenav__container').removeClass('hidden');
+
     if (this.props.timer <= 0) {
       console.log("timer reset");
       this.props.timerReset();

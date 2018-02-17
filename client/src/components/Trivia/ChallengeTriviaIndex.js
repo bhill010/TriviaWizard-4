@@ -35,6 +35,8 @@ class ChallengeTriviaIndex extends Component {
   }
 
   componentDidMount() {
+    $('.sidenav__section > .sidenav__container').addClass('hidden');
+
     if (count === 0) {
       this.props.fetchQuestions();
       count++;
@@ -54,6 +56,8 @@ class ChallengeTriviaIndex extends Component {
   }
 
   componentWillUnmount() {
+    $('.sidenav__section > .sidenav__container').removeClass('hidden');
+
     if (this.props.timer <= 0) {
       console.log("unmount timer reset");
       this.props.timerReset();
