@@ -100,7 +100,50 @@ li.index-item {
   animation-duration: 10s;
   animation-timing-duration: linear;
   animation-iteration-count: infinite;
+
+  box-shadow: 0 6px #2e4951;
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
 }
+
+.index-button:hover {
+	box-shadow: 0 4px #2e4951;
+	top: 2px;
+}
+
+.index-button:active {
+	box-shadow: 0 0 #2e4951;
+	top: 6px;
+}
+
+/*.btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  background: #fcad26;
+  font-size: 16px;
+  font-weight: 300;
+	color: white;
+  text-transform: uppercase;
+	letter-spacing: 2px;
+  padding: 25px 80px;
+  margin: 0 auto;
+	box-shadow: 0 6px #efa424;
+  border-radius: 20px;
+}
+
+.btn:hover {
+	box-shadow: 0 4px #efa424;
+	top: 2px;
+}
+
+.btn:active {
+	box-shadow: 0 0 #efa424;
+	top: 6px;
+}*/
 
 .question-container {
   top: 0;

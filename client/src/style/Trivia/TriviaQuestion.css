@@ -11,7 +11,25 @@
   font-size: 20px !important;
   padding: 10px 30px;
   margin-right: 50px;
+
+  box-shadow: 0 6px #7a2b2b;
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
 }
+
+
+
+.question-back-button:hover {
+  box-shadow: 0 4px #7a2b2b;
+  top: 2px;
+}
+
+.question-back-button:active {
+  box-shadow: 0 0 #7a2b2b;
+  top: 6px;
+}
+
 
 .wrong {
   background-color: red !important;

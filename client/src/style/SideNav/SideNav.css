@@ -24,4 +24,5 @@
 .sidenav__button {
   width: 100%;
   border-radius: 0;
+  transition: .2s all;
 }

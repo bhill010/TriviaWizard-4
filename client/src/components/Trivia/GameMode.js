@@ -59,7 +59,7 @@ class GameMode extends Component {
         <div className="gamemode-container">
           <div>
             <button
-              className="btn btn-info show-link"
+              className="btn btn-info show-link index-button"
               onClick={this.setupChallengeMode}
             >
               Challenge
