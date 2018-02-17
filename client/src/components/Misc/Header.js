@@ -58,7 +58,7 @@ class Header extends Component {
     } else {
       let credentialID = this.props.auth.user._id;
       return (
-        <div>
+        <div className="route-container__header">
           <nav className="header">
             <div className="header__first">
               <Link
