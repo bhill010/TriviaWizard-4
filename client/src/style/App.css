@@ -32,6 +32,7 @@
   align-self: flex-start;
   color: white;
   font-family: 'Lobster', cursive;
+  font-size: 30px;
 }
 
 a:visited {color: white;}  /* visited link */

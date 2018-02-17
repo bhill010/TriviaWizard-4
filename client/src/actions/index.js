@@ -125,9 +125,10 @@ export const pointsReset = () => {
 };
 
 export const createHighScore = (highscore, ownerID, username) => {
+  console.log("create high score action score :", highscore);
   return dispatch => {
     axios
-      .post(`/api/users/${ownerID}/highscores`, { highscore, ownerID, username })
+      .post(`/api/user/${ownerID}/highscores`, { highscore, ownerID, username })
       .then(response => {
         dispatch({ type: CREATE_HIGHSCORE, payload: response.data });
       });
@@ -138,7 +139,7 @@ export const updateHighScore = (highscore, ownerID, cb = null) => {
   console.log("update high score action called...");
   return dispatch => {
     axios
-      .put(`/api/users/${ownerID}/highscores`, { highscore })
+      .put(`/api/user/${ownerID}/highscores`, { highscore })
       .then(response => {
         console.log("update high score action response: ", response.data);
         dispatch({ type: UPDATE_HIGHSCORE, payload: response.data });

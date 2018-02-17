@@ -19,11 +19,12 @@ module.exports = app => {
 
   // CREATE new highscore
   app.post("/api/user/:id/highscores", function(req, res, next) {
+    console.log("create backend route started...");
     User.findById(req.params.id, function(err, user) {
       if (err) {
         console.log(err);
       } else {
-        const score = req.body.score;
+        const score = req.body.highscore;
         const username = req.body.username;
         const owner = {
           id: req.body.ownerID
@@ -41,6 +42,8 @@ module.exports = app => {
           } else {
             user.highscore = newHighScore;
             user.save();
+            newHighScore.save();
+            console.log("new high score saved :", newHighScore);
             res.send(newHighScore);
           }
         });
@@ -49,7 +52,7 @@ module.exports = app => {
   });
 
 // UPDATE a user's highscore
-  app.put("/api/users/:id/highscores", function(req, res) {
+  app.put("/api/user/:id/highscores", function(req, res) {
     User.findByIdAndUpdate(
       req.params.id,
       req.body.highscore,

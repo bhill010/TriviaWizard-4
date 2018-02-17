@@ -5,7 +5,7 @@ let highscoreSchema = new mongoose.Schema({
   username: String,
   owner: {
     id: {
-      type: Number,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "HighScore"
     }
   }
