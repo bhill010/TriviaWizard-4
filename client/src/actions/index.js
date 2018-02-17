@@ -15,7 +15,8 @@ import {
   POINTS_GAIN,
   POINTS_RESET,
   CREATE_HIGHSCORE,
-  UPDATE_HIGHSCORE
+  UPDATE_HIGHSCORE,
+  FETCH_HIGHSCORES
 } from "./types";
 
 const ROOT_URL = `https://qriusity.com/v1/questions`;
@@ -123,10 +124,10 @@ export const pointsReset = () => {
   };
 };
 
-export const createHighScore = (highscore, id, ownerID) => {
+export const createHighScore = (highscore, ownerID, username) => {
   return dispatch => {
     axios
-      .post(`/api/users/${id}/highscores`, { highscore, ownerID })
+      .post(`/api/users/${ownerID}/highscores`, { highscore, ownerID, username })
       .then(response => {
         dispatch({ type: CREATE_HIGHSCORE, payload: response.data });
       });
@@ -142,5 +143,13 @@ export const updateHighScore = (highscore, ownerID, cb = null) => {
         console.log("update high score action response: ", response.data);
         dispatch({ type: UPDATE_HIGHSCORE, payload: response.data });
       });
+  };
+};
+
+export const fetchHighScores = () => {
+  return dispatch => {
+    axios.get("/api/highscores").then(response => {
+      dispatch({ type: FETCH_HIGHSCORES, payload: response.data });
+    });
   };
 };

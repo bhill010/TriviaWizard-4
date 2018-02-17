@@ -24,12 +24,14 @@ module.exports = app => {
         console.log(err);
       } else {
         const score = req.body.score;
+        const username = req.body.username;
         const owner = {
           id: req.body.ownerID
         };
 
         const highscore = new HighScore({
           score: score,
+          username: username,
           owner: owner
         });
 
@@ -69,5 +71,19 @@ module.exports = app => {
         }
       }
     );
+  });
+
+  // FIND TOP 5 HIGH SCORES
+  app.get("/api/highscores", function(req, res, next) {
+    console.log("Hiiiiii");
+    HighScore.find({}, function(err, allHighScores) {
+      if (err) {
+        console.log(err);
+        res.status(401).send(err);
+      } else {
+        console.log("backend response :", allHighScores);
+        res.send(allHighScores);
+      }
+    });
   });
 }

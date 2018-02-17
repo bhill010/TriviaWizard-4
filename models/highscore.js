@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 let highscoreSchema = new mongoose.Schema({
   score: Number,
+  username: String,
   owner: {
     id: {
       type: Number,

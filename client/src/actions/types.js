@@ -23,3 +23,4 @@ export const POINTS_RESET = 'points_reset';
 // HighScore Reducer
 export const CREATE_HIGHSCORE = 'create_highscore';
 export const UPDATE_HIGHSCORE = 'update_highscore';
+export const FETCH_HIGHSCORES = 'fetch_highscores';
