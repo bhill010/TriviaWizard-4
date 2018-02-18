@@ -37,16 +37,16 @@ class ChallengeTriviaIndex extends Component {
   componentDidMount() {
     $('.sidenav__section > .sidenav__container').addClass('hidden');
 
-    if (count === 0) {
-      this.props.fetchQuestions();
-      count++;
-    }
-
-    if (this.props.timer === 0) {
-      console.log("timer reset and points reset!");
-      this.props.timerReset();
-      this.props.pointsReset();
-    }
+    // if (count === 0) {
+    //   this.props.fetchQuestions();
+    //   count++;
+    // }
+    //
+    // if (this.props.timer === 0) {
+    //   console.log("timer reset and points reset!");
+    //   this.props.timerReset();
+    //   this.props.pointsReset();
+    // }
 
     setTimeout(() => {
       if (this.props.timer === 30) {
@@ -58,10 +58,10 @@ class ChallengeTriviaIndex extends Component {
   componentWillUnmount() {
     $('.sidenav__section > .sidenav__container').removeClass('hidden');
 
-    if (this.props.timer <= 0) {
-      console.log("unmount timer reset");
-      this.props.timerReset();
-    }
+    // if (this.props.timer <= 0) {
+    //   console.log("unmount timer reset");
+    //   this.props.timerReset();
+    // }
   }
 
   onDeleteClick(id) {
@@ -109,9 +109,7 @@ class ChallengeTriviaIndex extends Component {
   render() {
     if (this.props.timer < 0) {
       this.props.timerStop();
-      // setTimeout(() => {
       this.props.history.push("/challengeover");
-      // }, 1000);
     }
     return (
       <div className="challenge-index">

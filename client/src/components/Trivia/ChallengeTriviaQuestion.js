@@ -36,10 +36,10 @@ class ChallengeTriviaQuestion extends Component {
   componentWillUnmount() {
     $('.sidenav__section > .sidenav__container').removeClass('hidden');
 
-    if (this.props.timer <= 0) {
-      console.log("timer reset");
-      this.props.timerReset();
-    }
+    // if (this.props.timer <= 0) {
+    //   console.log("timer reset");
+    //   this.props.timerReset();
+    // }
   }
 
   answerCheck(option) {
@@ -119,17 +119,15 @@ class ChallengeTriviaQuestion extends Component {
     if (!question) {
       setTimeout(() => {
         this.props.history.push("/challenge/questions");
-      }, 1000);
+      }, 200);
       return (
         <div className="redirect-container">
           <div className="question-header">
-            Returning to questions index...
+            Loading...
           </div>
         </div>
       )
     }
-
-    // console.log(question.id);
 
     if (this.props.timer < 0) {
       this.props.timerStop();

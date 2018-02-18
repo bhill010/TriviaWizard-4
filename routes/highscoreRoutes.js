@@ -53,12 +53,15 @@ module.exports = app => {
 
 // UPDATE a user's highscore
   app.put("/api/user/:id/highscores", function(req, res) {
+    console.log("backend update route started...");
     User.findByIdAndUpdate(
       req.params.id,
       req.body.highscore,
       { new: true },
       function(err, updatedUser) {
+        console.log("backend searching for user...");
         if (err) {
+          console.log(err);
           res.redirect("/");
         } else {
           const highscore = req.body.highscore;
@@ -68,6 +71,7 @@ module.exports = app => {
               console.log(err);
               res.redirect("/");
             } else {
+              console.log("backend updated user :", updatedUser);
               res.send(updatedUser);
             }
           });

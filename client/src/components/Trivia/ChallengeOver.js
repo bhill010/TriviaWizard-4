@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { pointsReset, updateHighScore, fetchQuestions, createHighScore } from "../../actions";
+import { pointsReset, updateHighScore, fetchQuestions, createHighScore, timerReset } from "../../actions";
 
 import "../../style/Trivia/GameMode.css";
 import "../../style/App.css";
 import "../../style/index.css";
+import "../../style/SideNav/HighScores.css";
+
 
 class ChallengeOver extends Component {
   constructor(props) {
@@ -20,6 +22,7 @@ class ChallengeOver extends Component {
   }
 
   componentWillUnmount() {
+    this.props.timerReset();
     this.props.pointsReset();
     if ( this.props.points > this.props.auth.user.highscore ) {
       console.log("sending action to update high score...");
@@ -33,7 +36,7 @@ class ChallengeOver extends Component {
       return (
         <div>
           <h3 className="index-header">
-            Great job!! You scored { this.props.points } points!
+            Great job!! You scored <span className="index-points gameover-points">{ this.props.points }</span> points!
           </h3>
           <h4 className="index-subheader">
             You beat your previous
@@ -49,7 +52,7 @@ class ChallengeOver extends Component {
           </h3>
           <h4 className="index-subheader">
             Play again to try beating your
-            high score of { this.props.auth.user.highscore } points!
+            high score of <span className="index-points gameover-points">{ this.props.auth.user.highscore }</span> points!
           </h4>
         </div>
       )
@@ -94,6 +97,6 @@ function mapStateToProps(state) {
   return { points: state.points, auth: state.auth };
 }
 
-export default connect(mapStateToProps, { pointsReset, updateHighScore, fetchQuestions, createHighScore })(
+export default connect(mapStateToProps, { pointsReset, updateHighScore, fetchQuestions, createHighScore, timerReset })(
 ChallengeOver
 );

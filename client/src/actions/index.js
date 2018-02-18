@@ -91,7 +91,6 @@ export const deleteQuestion = id => {
 
 let timer = null;
 export const timerStart = () => {
-  // clearInterval(timer);
   return dispatch => {
     timer = setInterval(() => {
       dispatch({ type: TIMER_START });
@@ -136,7 +135,7 @@ export const createHighScore = (highscore, ownerID, username) => {
 };
 
 export const updateHighScore = (highscore, ownerID, cb = null) => {
-  console.log("update high score action called...");
+  console.log("update high score action request: ", `/api/user/${ownerID}/highscores`);
   return dispatch => {
     axios
       .put(`/api/user/${ownerID}/highscores`, { highscore })

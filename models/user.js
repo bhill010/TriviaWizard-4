@@ -6,7 +6,6 @@ let userSchema = new mongoose.Schema({
   password: String,
   highscore: {
     type: Number,
-    ref: "HighScore",
     default: 0
   }
 });

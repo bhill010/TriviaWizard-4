@@ -16,7 +16,7 @@ class Dashboard extends Component {
             { this.props.auth.user.username }'s Dashboard
           </div>
           <div className="index-subheader">
-            Your High Score is { this.props.auth.user.highscore } points
+            Your High Score is <span className="index-points">{ this.props.auth.user.highscore } </span> points
           </div>
           <Link className="btn btn-primary index-button" to="/">
             Back to Homepage
