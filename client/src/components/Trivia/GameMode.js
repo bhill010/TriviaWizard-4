@@ -68,7 +68,7 @@ class GameMode extends Component {
                 </button>
               </div>
               <ul className="gamemode-description">
-                <li className="gamemode-description-item">60 second timer</li>
+                <li className="gamemode-description-item">45 second timer</li>
                 <li className="gamemode-description-item">Points earned for every correct answer</li>
                 <li className="gamemode-description-item">Cannot choose to have the answer revealed</li>
               </ul>
