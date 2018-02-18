@@ -49,7 +49,7 @@ class ChallengeTriviaIndex extends Component {
     // }
 
     setTimeout(() => {
-      if (this.props.timer === 30) {
+      if (this.props.timer === 45) {
         this.props.timerStart();
       }
     }, 800);

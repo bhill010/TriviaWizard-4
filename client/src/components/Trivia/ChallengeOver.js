@@ -71,7 +71,7 @@ class ChallengeOver extends Component {
             </h4>
             <div className="challenge-button-container">
               <div>
-                <Link className="btn btn-info index-button" to="/challenge/questions">
+                <Link className="btn btn-info gamemode-button" to="/challenge/questions">
                   Challenge!
                 </Link>
               </div>

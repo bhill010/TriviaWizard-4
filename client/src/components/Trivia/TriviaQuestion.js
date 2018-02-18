@@ -99,9 +99,11 @@ class TriviaQuestion extends Component {
         this.props.history.push("/questions");
       }, 2000);
       return (
-        <div className="redirect-container">
-          <div className="question-header">
-            Returning to questions index...
+        <div className="challenge-questions">
+          <div className="redirect-container">
+            <div className="question-header">
+              Return to Questions Page...
+            </div>
           </div>
         </div>
       );

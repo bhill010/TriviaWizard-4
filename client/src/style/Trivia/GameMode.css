@@ -74,6 +74,16 @@
   border-radius: 20px;
 }
 
+.gamemode-button:hover {
+	box-shadow: 0 4px #2e4951;
+	top: 2px;
+}
+
+.gamemode-button:active {
+	box-shadow: 0 0 #2e4951;
+	top: 6px;
+}
+
 @keyframes gamemodeButtonColor {
   0% {
     background-color: #fb9d4c;
