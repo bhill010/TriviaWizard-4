@@ -5,6 +5,11 @@
   margin-top: 40px;
 }
 
+.gamemode-points {
+  font-weight: bolder;
+  color: #50f57b;
+}
+
 .index-header-container {
   width: 60%;
   display: flex;

@@ -43,12 +43,14 @@ class GameMode extends Component {
                 </button>
               </div>
               <ul className="gamemode-description">
-                <li className="gamemode-description-item">45 second timer</li>
                 <li className="gamemode-description-item">
-                  Points earned for every correct answer
+                  45 second timer
                 </li>
                 <li className="gamemode-description-item">
-                  Cannot choose to have the answer revealed
+                  <span className="gamemode-points">Points earned</span> for every correct answer
+                </li>
+                <li className="gamemode-description-item">
+                  Only one attempt allowed to answer question
                 </li>
               </ul>
             </div>
@@ -61,10 +63,10 @@ class GameMode extends Component {
               <ul className="gamemode-description">
                 <li className="gamemode-description-item">Unlimited time</li>
                 <li className="gamemode-description-item">
-                  No points, just brushing up your trivia knowledge
+                  <span className="gamemode-points">No points</span>, just brushing up your trivia knowledge
                 </li>
                 <li className="gamemode-description-item">
-                  Answel reveal option made available
+                  Multiple attempts allowed to answer question
                 </li>
               </ul>
             </div>
