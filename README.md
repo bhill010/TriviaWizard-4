@@ -2,7 +2,7 @@
 
 Live Link: [TriviaWizard v4](https://trivia-wizard-four.herokuapp.com/)
 
-TriviaWizard is a single-page application powered with the React.js frontend framework and Node.js/Express/MongoDB for backend data management. TriviaWizard is a trivia app that provides fun questions to answer from an assortment of differecent categories.
+TriviaWizard is a single-page application powered with the React.js frontend framework and Node.js/Express/MongoDB for backend data management. TriviaWizard is a trivia app that provides fun questions to answer from an assortment of different categories.
 This project makes use of the Qriusity API which provides thousands of trivia questions and answers, so check out the project and try out some trivia!
 
 ## Implementation Details
