@@ -111,7 +111,6 @@ class TriviaQuestion extends Component {
 
     return (
       <div className="question">
-        <Link to="/questions" className="btn btn-danger pull-xs-right question-back-button">Back to index</Link>
         <div className="question-container">
           <h3 className="question-header challenge-header">Question:</h3>
           <p className="question-paragraph">{ question.question }</p>
@@ -122,7 +121,10 @@ class TriviaQuestion extends Component {
             <li onClick={event => {event.preventDefault(); this.answerCheck(question.option3);}} className="list-group-item question-item">{question.option3}</li>
             <li onClick={event => {event.preventDefault(); this.answerCheck(question.option4);}} className="list-group-item question-item">{question.option4}</li>
           </ul>
-          <button className="btn btn-primary question-button" onClick={this.answerCheckAll}>Answer</button>
+          <div className="casual-button-container">
+            <button className="btn btn-primary question-button" onClick={this.answerCheckAll}>Answer</button>
+            <Link to="/questions" className="btn btn-danger pull-xs-right question-back-button casual-back-button">Back to index</Link>
+          </div>
         </div>
       </div>
     );

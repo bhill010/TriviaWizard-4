@@ -121,9 +121,11 @@ class ChallengeTriviaQuestion extends Component {
         this.props.history.push("/challenge/questions");
       }, 200);
       return (
-        <div className="redirect-container">
-          <div className="question-header">
-            Loading...
+        <div className="challenge-questions">
+          <div className="redirect-container">
+            <div className="question-header">
+              Loading...
+            </div>
           </div>
         </div>
       )
@@ -141,8 +143,8 @@ class ChallengeTriviaQuestion extends Component {
             <h4 className="index-header challenge-header">Timer: {this.props.timer}</h4>
             <h4 className="index-header challenge-header">Points: {this.props.points}</h4>
             <h4 className="index-header challenge-header">High Score: {this.props.auth.user.highscore}</h4>
-            <Link to="/challenge/questions" className="btn btn-danger pull-xs-right question-back-button challenge-back-button">Back to index</Link>
           </div>
+          <Link to="/challenge/questions" className="btn btn-danger pull-xs-right question-back-button challenge-back-button">Back to index</Link>
         </div>
         <div className="challenge-questions">
           <div className="challenge-questions-container question-item-container">
