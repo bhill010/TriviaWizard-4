@@ -32,8 +32,8 @@ class HighScores extends Component {
 
     return (
       <div className="index">
-        <div className="index-header">Trivia Wizard Top 5 Scores</div>
-        <ul className="list-group index-list">
+        <div className="index-header highscore-animated-header">Trivia Wizard Top 5 Scores</div>
+        <ul className="list-group index-list highscore-animated-subheader">
           {_.map(highscores, (score, idx) => {
             return (
               <li

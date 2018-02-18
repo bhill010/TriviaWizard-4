@@ -118,6 +118,16 @@ li.index-item {
   border-radius: 20px;
 }
 
+.question-button:hover {
+  box-shadow: 0 4px #2e4951;
+  top: 2px;
+}
+
+.question-button:active {
+  box-shadow: 0 0 #2e4951;
+  top: 6px;
+}
+
 .index-button:hover {
   box-shadow: 0 4px #2e4951;
   top: 2px;

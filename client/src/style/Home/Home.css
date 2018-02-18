@@ -1,3 +1,22 @@
 .home-button {
   width: 300px;
 }
+
+.home-animated-header {
+  animation: moveInBottom .2s ease-out .2s;
+  animation-fill-mode: backwards;
+}
+
+.home-animated-subheader {
+  animation: moveInBottom .8s ease-out .8s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); }
+  }

@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import $ from "jquery";
 
 import "../../style/App.css";
 import "../../style/Trivia/TriviaIndex.css";
 import "../../style/index.css";
+import "../../style/Home/Home.css";
+
+
 
 class Home extends Component {
   render() {
@@ -12,8 +16,8 @@ class Home extends Component {
       return (
         <div className="index">
           <div className="index-container">
-            <h3 className="index-header">Welcome to Trivia Wizard!</h3>
-            <h4 className="index-subheader">
+            <h3 className="index-header home-animated-header">Welcome to Trivia Wizard!</h3>
+            <h4 className="index-subheader home-animated-subheader">
               Please register or login to put your knowledge to the test!
             </h4>
             <Link
@@ -29,8 +33,8 @@ class Home extends Component {
       return (
         <div className="index">
           <div className="index-container">
-            <h3 className="index-header">Welcome back!</h3>
-            <h4 className="index-subheader">
+            <h3 className="index-header home-animated-header">Welcome back!</h3>
+            <h4 className="index-subheader home-animated-subheader">
               Why don't you try putting your knowledge to the test?
             </h4>
             <div>

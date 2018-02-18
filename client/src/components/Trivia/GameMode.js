@@ -29,11 +29,11 @@ class GameMode extends Component {
     return (
       <div className="index">
         <div className="index-header-container">
-          <h3 className="index-header">
+          <h3 className="index-header gamemode-animated-header">
             Which game mode would you like to play?
           </h3>
           <div className="gamemode-description-section">
-            <div className="gamemode-description-container gamemode-description-container-challenge">
+            <div className="gamemode-description-container gamemode-description-container-challenge gamemode-animated-challenge">
               <div className="gamemode-button-container">
                 <button
                   className="btn btn-info show-link gamemode-button"
@@ -54,7 +54,7 @@ class GameMode extends Component {
                 </li>
               </ul>
             </div>
-            <div className="gamemode-description-container">
+            <div className="gamemode-description-container gamemode-animated-casual">
               <div className="gamemode-button-container">
                 <Link className="btn btn-info index-button" to="/questions">
                   Casual
