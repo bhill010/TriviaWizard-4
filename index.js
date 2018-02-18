@@ -13,7 +13,6 @@ cookieSession = require("cookie-session");
 
 const User = require("./models/user");
 
-
 mongoose.connect(keys.mongoURI);
 
 const app = express();
@@ -36,12 +35,11 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(id, done) {
   User.findById(id, function(err, user) {
     done(err, user);
-  })
-})
+  });
+});
 
 require("./routes/userRoutes")(app);
 require("./routes/highscoreRoutes")(app);
-
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

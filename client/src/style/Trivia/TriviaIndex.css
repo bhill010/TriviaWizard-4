@@ -1,7 +1,6 @@
 /* INDEX STYLING */
 .fa-check-square {
   font-size: 30px;
-  /*transition: 0.2s color;*/
   color: white;
 }
 
@@ -9,7 +8,8 @@
   color: #49ce49;
 }
 
-.index, .question {
+.index,
+.question {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,11 +28,14 @@
   justify-content: center;
 }
 
-.index-header, .index-item, .question-header {
+.index-header,
+.index-item,
+.question-header {
   text-align: center;
 }
 
-.index-header, .question-header {
+.index-header,
+.question-header {
   margin-top: 40px;
   color: white;
   font-size: 50px;
@@ -54,7 +57,8 @@
   text-align: center;
 }
 
-.index-list, .question-list {
+.index-list,
+.question-list {
   width: 350px;
 }
 
@@ -78,13 +82,15 @@
   flex-basis: 80px;
 }
 
-.index-item, .question-item {
+.index-item,
+.question-item {
   margin: 15px;
   text-decoration: none;
   transition: 0.2s background, 0.2s border-color, 0.2s color;
 }
 
-.index-item:hover, .question-item:hover {
+.index-item:hover,
+.question-item:hover {
   background-color: #9fdce3;
   border-color: #9fdce3;
   color: white;
@@ -96,7 +102,8 @@ li.index-item {
   justify-content: center;
 }
 
-.index-button, .question-button {
+.index-button,
+.question-button {
   margin: 15px;
   font-size: 20px;
   padding: 10px 30px;
@@ -113,13 +120,13 @@ li.index-item {
 }
 
 .index-button:hover {
-	box-shadow: 0 4px #2e4951;
-	top: 2px;
+  box-shadow: 0 4px #2e4951;
+  top: 2px;
 }
 
 .index-button:active {
-	box-shadow: 0 0 #2e4951;
-	top: 6px;
+  box-shadow: 0 0 #2e4951;
+  top: 6px;
 }
 
 /*.btn {
@@ -194,20 +201,24 @@ li.index-item {
 }
 
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: translate3d(-1px, 0, 0);
   }
 
-  20%, 80% {
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
 
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: translate3d(-4px, 0, 0);
-
   }
 
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(4px, 0, 0);
   }
 }

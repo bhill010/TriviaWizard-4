@@ -1,10 +1,9 @@
-import _ from 'lodash';
-import { POINTS_GAIN, POINTS_RESET } from '../actions/types';
+import { POINTS_GAIN, POINTS_RESET } from "../actions/types";
 
 const defaultState = 0;
 
 export default function(state = defaultState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case POINTS_GAIN:
       var newState = state;
       newState += 5;

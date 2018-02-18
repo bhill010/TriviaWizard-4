@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "../../style/SideNav/SideNav.css";
@@ -15,10 +15,14 @@ class Dashboard extends Component {
         <div className="dashboard-container">
           <div className="dashboard-section dashboard-section-info">
             <div className="index-header dashboard-header">
-              { this.props.auth.user.username }'s Dashboard
+              {this.props.auth.user.username}'s Dashboard
             </div>
             <div className="index-subheader">
-              Your High Score is <span className="index-points">{ this.props.auth.user.highscore } </span> points
+              Your High Score is{" "}
+              <span className="index-points">
+                {this.props.auth.user.highscore}{" "}
+              </span>{" "}
+              points
             </div>
           </div>
           <div className="dashboard-section dashboard-section-button">
@@ -28,7 +32,7 @@ class Dashboard extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
@@ -36,6 +40,4 @@ function mapStateToProps(state) {
   return { points: state.points, auth: state.auth };
 }
 
-export default connect(mapStateToProps)(
-Dashboard
-);
+export default connect(mapStateToProps)(Dashboard);

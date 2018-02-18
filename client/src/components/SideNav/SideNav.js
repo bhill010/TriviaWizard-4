@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-
 
 import "../../style/SideNav/SideNav.css";
 import "../../style/App.css";
@@ -13,27 +12,36 @@ class SideNav extends Component {
       return (
         <div className="sidenav__section">
           <div className="sidenav__container">
-            <Link className="btn btn-success sidenav__button sidenav__highscore" to="/highscores">
+            <Link
+              className="btn btn-success sidenav__button sidenav__highscore"
+              to="/highscores"
+            >
               High Scores
             </Link>
           </div>
         </div>
-      )
+      );
     } else {
       return (
         <div className="sidenav__section">
           <div className="sidenav__container">
-            <Link className="btn btn-success sidenav__button sidenav__dashboard" to="/dashboard">
+            <Link
+              className="btn btn-success sidenav__button sidenav__dashboard"
+              to="/dashboard"
+            >
               Dashboard
             </Link>
           </div>
           <div className="sidenav__container">
-            <Link className="btn btn-success sidenav__button sidenav__highscore" to="/highscores">
+            <Link
+              className="btn btn-success sidenav__button sidenav__highscore"
+              to="/highscores"
+            >
               High Scores
             </Link>
           </div>
         </div>
-      )
+      );
     }
   }
 }

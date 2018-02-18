@@ -50,12 +50,9 @@ export default function(state = defaultState, action) {
         errorMessage: ""
       });
     case UPDATE_HIGHSCORE:
-      console.log("reducer new score data", action.payload);
       let updatedUserState = state;
       updatedUserState.user.highscore = action.payload.highscore;
-      // let newHighScore = action.payload.highscore
       let newState = _.merge({}, state, updatedUserState);
-      console.log("highscore reducer new state", newState);
       return newState;
     default:
       return state;

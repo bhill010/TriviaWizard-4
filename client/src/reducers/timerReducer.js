@@ -1,10 +1,9 @@
-import _ from 'lodash';
-import { TIMER_START, TIMER_RESET, TIMER_STOP } from '../actions/types';
+import { TIMER_START, TIMER_RESET, TIMER_STOP } from "../actions/types";
 
 const defaultState = 45;
 
 export default function(state = defaultState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case TIMER_START:
       var newState = state;
       newState -= 1;

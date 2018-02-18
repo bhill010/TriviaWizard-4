@@ -37,7 +37,7 @@
   padding: 10px;
   border-radius: 30px;
   border: 4px solid #1f72cb;
-  box-shadow: 10px 10px 8px rgba(0,0,0,0.8);
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.8);
 }
 
 .gamemode-description-container-challenge {
@@ -75,13 +75,13 @@
 }
 
 .gamemode-button:hover {
-	box-shadow: 0 4px #2e4951;
-	top: 2px;
+  box-shadow: 0 4px #2e4951;
+  top: 2px;
 }
 
 .gamemode-button:active {
-	box-shadow: 0 0 #2e4951;
-	top: 6px;
+  box-shadow: 0 0 #2e4951;
+  top: 6px;
 }
 
 @keyframes gamemodeButtonColor {

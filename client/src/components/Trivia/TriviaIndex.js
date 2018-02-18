@@ -10,7 +10,6 @@ import "../../style/Trivia/TriviaIndex.css";
 import "../../style/Trivia/ChallengeTriviaIndex.css";
 import "../../style/index.css";
 
-
 $(document).on("click", "#test", function() {
   $(this)
     .siblings()
@@ -62,8 +61,6 @@ class TriviaIndex extends Component {
         return;
       }
 
-      console.log(question.id);
-
       return (
         <div key={question.id} className="index-item-container">
           <span
@@ -106,5 +103,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { fetchQuestions, deleteQuestion })(
-TriviaIndex
+  TriviaIndex
 );

@@ -12,7 +12,7 @@
 .header__button {
   letter-spacing: 1.5px;
   border-radius: 5px;
-  box-shadow: 3px 5px 15px rgba(0,0,0,0.5);
+  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .header__first {

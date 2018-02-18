@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { register, clearLoginErrors, clearAuthErrors } from "../../actions";
+import { register, clearAuthErrors } from "../../actions";
 
 import "../../style/App.css";
 import "../../style/Credential/Form.css";
@@ -72,4 +72,6 @@ function mapStateToProps(state) {
   return { auth: state.auth };
 }
 
-export default connect(mapStateToProps, { register, clearAuthErrors })(Register);
+export default connect(mapStateToProps, { register, clearAuthErrors })(
+  Register
+);

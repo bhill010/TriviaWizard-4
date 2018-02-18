@@ -27,10 +27,7 @@ class Header extends Component {
         <div className="route-container__header">
           <nav className="header">
             <div className="header__first">
-              <Link
-                className="logo pull-xs-left"
-                to={"/"}
-                >
+              <Link className="logo pull-xs-left" to={"/"}>
                 Trivia Wizard
               </Link>
             </div>
@@ -56,15 +53,11 @@ class Header extends Component {
         </div>
       );
     } else {
-      let credentialID = this.props.auth.user._id;
       return (
         <div className="route-container__header">
           <nav className="header">
             <div className="header__first">
-              <Link
-                className="logo pull-xs-left"
-                to={"/"}
-                >
+              <Link className="logo pull-xs-left" to={"/"}>
                 Trivia Wizard
               </Link>
             </div>

@@ -29,7 +29,6 @@
   margin-right: 0px;
 }
 
-
 .question-back-button:hover {
   box-shadow: 0 4px #7a2b2b;
   top: 2px;
@@ -39,7 +38,6 @@
   box-shadow: 0 0 #7a2b2b;
   top: 6px;
 }
-
 
 .wrong {
   background-color: red !important;

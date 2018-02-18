@@ -19,7 +19,6 @@ module.exports = app => {
 
   // CREATE new highscore
   app.post("/api/user/:id/highscores", function(req, res, next) {
-    console.log("create backend route started...");
     User.findById(req.params.id, function(err, user) {
       if (err) {
         console.log(err);
@@ -43,7 +42,6 @@ module.exports = app => {
             user.highscore = newHighScore;
             user.save();
             newHighScore.save();
-            console.log("new high score saved :", newHighScore);
             res.send(newHighScore);
           }
         });
@@ -51,15 +49,13 @@ module.exports = app => {
     });
   });
 
-// UPDATE a user's highscore
+  // UPDATE a user's highscore
   app.put("/api/user/:id/highscores", function(req, res) {
-    console.log("backend update route started...");
     User.findByIdAndUpdate(
       req.params.id,
       req.body.highscore,
       { new: true },
       function(err, updatedUser) {
-        console.log("backend searching for user...");
         if (err) {
           console.log(err);
           res.redirect("/");
@@ -71,7 +67,6 @@ module.exports = app => {
               console.log(err);
               res.redirect("/");
             } else {
-              console.log("backend updated user :", updatedUser);
               res.send(updatedUser);
             }
           });
@@ -82,15 +77,13 @@ module.exports = app => {
 
   // FIND TOP 5 HIGH SCORES
   app.get("/api/highscores", function(req, res, next) {
-    console.log("Hiiiiii");
     HighScore.find({}, function(err, allHighScores) {
       if (err) {
         console.log(err);
         res.status(401).send(err);
       } else {
-        console.log("backend response :", allHighScores);
         res.send(allHighScores);
       }
     });
   });
-}
+};

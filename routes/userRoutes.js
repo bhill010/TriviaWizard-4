@@ -15,12 +15,11 @@ module.exports = app => {
           res.status(401).send(err);
         } else {
           passport.authenticate("local")(req, res, function() {
-            console.log("Success register");
             res.send(user);
-          })
+          });
         }
       }
-    )
+    );
   });
 
   app.post("/api/login", function(req, res, next) {
@@ -34,7 +33,6 @@ module.exports = app => {
           if (err) {
             res.status(500).send(err);
           } else {
-            console.log("Success login");
             res.send(user);
           }
         });
@@ -44,7 +42,6 @@ module.exports = app => {
 
   app.get("/api/logout", function(req, res) {
     req.logout();
-    console.log("Success logout");
     res.send("Complete");
   });
 
@@ -58,4 +55,4 @@ module.exports = app => {
       }
     });
   });
-}
+};
