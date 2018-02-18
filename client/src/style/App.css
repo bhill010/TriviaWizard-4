@@ -3,6 +3,8 @@
 .App {
   background-image: url(../img/trivia.jpg);
   border-radius: 15px 15px 0px 0px;
+  max-width: 1900px;
+  width: 100%;
 }
 
 .route-container {
