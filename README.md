@@ -11,8 +11,7 @@ This project makes use of the Qriusity API which provides thousands of trivia qu
 
 The Passport.js library is used to handle authentication. The Local strategy
 is used to receive a username and password for verification. The authentication
-also creates permissions, where users can only edit content that they have created
-themselves.
+also creates permissions, so users cannot access certain pages without being logged in.
 
 ### Model Structure
 
