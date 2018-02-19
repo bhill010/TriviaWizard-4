@@ -73,7 +73,7 @@ class Header extends Component {
                   className="btn btn-primary header__button"
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://github.com/bhill010/mernExpressAssociations"
+                  href="https://github.com/bhill010/TriviaWizard-4"
                 >
                   Github
                 </a>
